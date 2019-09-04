@@ -1,0 +1,508 @@
+   <table style="text-align: center">
+    <tr>
+        <th>Element</th>
+        <th>Property</th>
+        <th>Value</th>
+        <th>Summary Level</th>
+        <th>Version Level</th>
+        <th>Distribution Level</th>
+    </tr>
+    <tr>
+        <td>Type declaration</td>
+        <td>rdf:type</td>
+        <td>dctypes:Dataset</td>
+        <td>MUST</td>
+        <td>MUST</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td>Type declaration</td>
+        <td>rdf:type</td>
+        <td>void:Dataset or dcat:Distribution</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>MUST</td>
+    </tr>
+    <tr>
+        <td>Title</td>
+        <td>dct:title</td>
+        <td>rdf:langString</td>
+        <td>MUST</td>
+        <td>MUST</td>
+        <td>MUST</td>
+    </tr>
+    <tr>
+        <td>Alternative titles</td>
+        <td>dct:alternative</td>
+        <td>rdf:langString</td>
+        <td>MAY</td>
+        <td>MAY</td>
+        <td>MAY</td>
+    </tr>
+    <tr>
+        <td>Description</td>
+        <td>dct:description</td>
+        <td>rdf:langString</td>
+        <td>MUST</td>
+        <td>MUST</td>
+        <td>MUST</td>
+    </tr>
+    <tr>
+        <td>Date created</td>
+        <td>dct:created</td>
+        <td>rdfs:Literal</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+        <td>SHOULD</td>
+    </tr>
+
+    <tr>
+        <td>Other dates</td>
+        <td>pav:createdOn or pav:authoredOn or pav:curatedOn</td>
+        <td>xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear</td>
+        <td>MUST NOT</td>
+        <td>MAY</td>
+        <td>MAY</td>
+    </tr>
+    <tr>
+        <td>Creators</td>
+        <td>dct:creator</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>MUST</td>
+        <td>MUST</td>
+    </tr>
+    <tr>
+        <td>Contributors</td>
+        <td>dct:contributor or pav:createdBy or pav:authoredBy or pav:curatedBy</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>MAY</td>
+        <td>MAY</td>
+    </tr>
+    <tr>
+        <td>Publisher</td>
+        <td>dct:publisher</td>
+        <td>IRI</td>
+        <td>MUST</td>
+        <td>MUST</td>
+        <td>MUST</td>
+    </tr>
+    <tr>
+        <td>Date of issue</td>
+        <td>dct:issued</td>
+        <td>rdfs:Literal</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td>HTML page</td>
+        <td>foaf:page</td>
+        <td>IRI</td>
+        <td>SHOULD</td>
+        <td>SHOULD</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+    	<td>Logo</td>
+    	<td>schemaorg:logo</td>
+    	<td>IRI</td>
+    	<td>SHOULD</td>
+    	<td>SHOULD</td>
+    	<td>SHOULD</td>
+    </tr>
+    <tr>
+        <td>Keywords</td>
+        <td>dcat:keyword</td>
+        <td>xsd:string</td>
+        <td>MAY</td>
+        <td>MAY</td>
+        <td>MAY</td>
+    </tr>
+    <tr>
+        <td>License</td>
+        <td>dct:license</td>
+        <td>IRI</td>
+        <td>MAY</td>
+        <td>SHOULD</td>
+        <td>MUST</td>
+    </tr>
+    <tr>
+        <td>Rights</td>
+        <td>dct:rights</td>
+        <td>rdf:langString</td>
+        <td>MAY</td>
+        <td>MAY</td>
+        <td>MAY</td>
+    </tr>
+    <tr>
+        <td>Language</td>
+        <td>dct:language</td>
+        <td>IRI [http://lexvo.org/id/iso639-3/{langtag}]</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td>References</td>
+        <td>dct:references</td>
+        <td>IRI</td>
+        <td>MAY</td>
+        <td>MAY</td>
+        <td>MAY</td>
+    </tr>
+    <tr>
+        <td>Concept descriptors</td>
+        <td>dcat:theme</td>
+        <td>IRI [skos:Concept]</td>
+        <td>MAY</td>
+        <td>MAY</td>
+        <td>MAY</td>
+    </tr>
+    <tr>
+        <td>Vocabulary used</td>
+        <td>void:vocabulary</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td>Standards used</td>
+        <td>dct:conformsTo</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>MAY</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td>Citations</td>
+        <td>cito:citesAsAuthority</td>
+        <td>IRI</td>
+        <td>MAY</td>
+        <td>MAY</td>
+        <td>MAY</td>
+    </tr>
+    <tr>
+        <td>Related material</td>
+        <td>rdfs:seeAlso</td>
+        <td>IRI</td>
+        <td>MAY</td>
+        <td>MAY</td>
+        <td>MAY</td>
+    </tr>
+    <tr>
+        <td>Partitions</td>
+        <td>dct:hasPart</td>
+        <td>IRI</td>
+        <td>MAY</td>
+        <td>MAY</td>
+        <td>MUST NOT</td>
+    </tr>
+    <tr>
+        <td>Preferred prefix</td>
+        <td>idot:preferredPrefix</td>
+        <td>xsd:string</td>
+        <td>MAY</td>
+        <td>MAY</td>
+        <td>MAY</td>
+    </tr>
+    <tr>
+        <td>Alternate prefix</td>
+        <td>idot:alternatePrefix</td>
+        <td>xsd:string</td>
+        <td>MAY</td>
+        <td>MAY</td>
+        <td>MAY</td>
+    </tr>
+    <tr>
+        <td>Identifier pattern</td>
+        <td>idot:identifierPattern</td>
+        <td>xsd:string</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>MAY</td>
+    </tr>
+    <tr>
+        <td>URI pattern</td>
+        <td>void:uriRegexPattern</td>
+        <td>xsd:string</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>MAY</td>
+    </tr>
+    <tr>
+        <td>File access pattern</td>
+        <td>idot:accessPattern</td>
+        <td>idot:AccessPattern</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>MAY</td>
+    </tr>
+    <tr>
+        <td>Example identifier</td>
+        <td>idot:exampleIdentifier</td>
+        <td>xsd:string</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td>Example resource</td>
+        <td>void:exampleResource</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td>Version identifier</td>
+        <td>pav:version</td>
+        <td>xsd:string</td>
+        <td>MUST NOT</td>
+        <td>MUST</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td>Version linking</td>
+        <td>dct:isVersionOf</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>MUST</td>
+        <td>MUST NOT</td>
+    </tr>
+    <tr>
+        <td>Version linking</td>
+        <td>pav:previousVersion</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td>Version linking</td>
+        <td>pav:hasCurrentVersion</td>
+        <td>IRI</td>
+        <td>MAY</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+    </tr>
+    <tr>
+        <td>Data source provenance</td>
+        <td>dct:source or pav:retrievedFrom or prov:wasDerivedFrom</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td>Item listing</td>
+        <td>sio:has-data-item</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>MAY</td>
+    </tr>
+    <tr>
+        <td>Creation tool</td>
+        <td>pav:createdWith</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td>Update frequency</td>
+        <td>dct:accrualPeriodicity</td>
+        <td>IRI [dctypes:Frequency]</td>
+        <td>SHOULD</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+    </tr>
+    <tr>
+        <td>Distribution description</td>
+        <td>dcat:distribution</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+        <td>MUST NOT</td>
+    </tr>
+    <tr>
+        <td>File format</td>
+        <td>dct:format</td>
+        <td>IRI or xsd:String </td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>MUST</td>
+    </tr>
+    <tr>
+        <td>File directory</td>
+        <td>dcat:accessURL</td>
+        <td>IRI</td>
+        <td>MAY</td>
+        <td>MAY</td>
+        <td>MAY</td>
+    </tr>
+    <tr>
+        <td>File URL</td>
+        <td>dcat:downloadURL</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td>Byte size</td>
+        <td>dcat:byteSize</td>
+        <td>xsd:decimal</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td>RDF File URL</td>
+        <td>void:dataDump</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td>SPARQL endpoint</td>
+        <td>void:sparqlEndpoint</td>
+        <td>IRI</td>
+        <td>SHOULD</td>
+        <td>SHOULD NOT</td>
+        <td>SHOULD NOT</td>
+    </tr>
+    <tr>
+        <td>Documentation</td>
+        <td>dcat:landingPage</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>MAY</td>
+        <td>MAY</td>
+    </tr>
+	<tr>
+        <td>Linkset</td>
+        <td>void:subset</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td># of triples</td>
+        <td>void:triples</td>
+        <td>xsd:integer</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td># of typed entities</td>
+        <td>void:entities</td>
+        <td>xsd:integer</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td># of subjects</td>
+        <td>void:distinctSubjects</td>
+        <td>xsd:integer</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td># of properties</td>
+        <td>void:properties</td>
+        <td>xsd:integer</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td># of objects</td>
+        <td>void:distinctObjects</td>
+        <td>xsd:integer</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+    </tr>
+	    <tr>
+        <td># of classes</td>
+        <td>void:classPartition</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td># of literals</td>
+        <td>void:classPartition</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td># of RDF graphs</td>
+        <td>void:classPartition</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>SHOULD</td>
+    </tr>
+    <tr>
+        <td>class frequency</td>
+        <td>void:classPartition</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>MAY</td>
+    </tr>
+    <tr>
+        <td>property frequency</td>
+        <td>void:propertyPartition</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>MAY</td>
+    </tr>
+    <tr>
+        <td>property and subject types</td>
+        <td>void:propertyPartition</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>MAY</td>
+    </tr>
+	<tr>
+        <td>property and object types</td>
+        <td>void:propertyPartition</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>MAY</td>
+    </tr>
+    <tr>
+        <td>property and literals</td>
+        <td>void:propertyPartition</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>MAY</td>
+    </tr>	
+	    <tr>
+        <td>property subject and object types</td>
+        <td>void:propertyPartition</td>
+        <td>IRI</td>
+        <td>MUST NOT</td>
+        <td>MUST NOT</td>
+        <td>MAY</td>
+    </tr>
+
+    </table>
