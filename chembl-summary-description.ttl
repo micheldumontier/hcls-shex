@@ -1,0 +1,43 @@
+@prefix :      <http://rdf.ebi.ac.uk/chembl/> .
+@prefix dctypes: <http://purl.org/dc/dcmitype/> .
+@prefix schemaorg: <http://schema.org/> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix pav:   <http://purl.org/pav/> .
+@prefix freq:  <http://purl.org/cld/freq/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void-ext: <http://ldf.fi/void-ext#> .
+@prefix cito:  <http://purl.org/spar/cito/> .
+@prefix idot:  <http://identifiers.org/idot/> .
+@prefix sd:    <http://www.w3.org/ns/sparql-service-description#> .
+@prefix ncit:  <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sio:   <http://semanticscience.org/resource/> .
+@prefix lexvo: <http://lexvo.org/ontology#> .
+@prefix dcat:  <http://www.w3.org/ns/dcat#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+
+:chembl  a                      dctypes:Dataset ;
+        rdfs:seeAlso            <http://en.wikipedia.org/wiki/ChEMBL> ;
+        idot:alternatePrefix    "chembldb" ;
+        idot:preferredPrefix    "chembl" ;
+        dct:accrualPeriodicity  freq:quarterly ;
+        dct:alternative         "ChEMBLdb"@en ;
+        dct:description         "ChEMBL is a database of bioactive compounds, their quantitative properties and       bioactivities (binding constants, pharmacology and ADMET, etc). The data is abstracted and curated       from the primary scientific literature."@en ;
+        dct:hasPart             :chembl17_rdf_molecule_dataset , :chembl17_rdf_target_dataset ;
+        dct:license             <http://creativecommons.org/licenses/by-sa/3.0/> ;
+        dct:publisher           :ebi ;
+        dct:references          <http://dx.doi.org/10.1093/bioinformatics/btt765> ;
+        dct:rights              "The data in ChEMBL is covered by the Creative Commons By Attribution. Under the -BY clause"@en ;
+        dct:title               "ChEMBL"@en ;
+        pav:hasCurrentVersion   :chembl17 ;
+        cito:citesAsAuthority   <http://nar.oxfordjournals.org/content/40/D1/D1100> ;
+        void:sparqlEndpoint     <https://www.ebi.ac.uk/rdf/services/chembl/sparql> ;
+        schemaorg:logo          <http://www.ebi.ac.uk/rdf/sites/ebi.ac.uk.rdf/files/resize/images/rdf/chembl_service_logo-146x48.gif> ;
+        dcat:accessURL          <ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb> ;
+        dcat:keyword            "chemical" , "assay" ;
+        dcat:theme              ncit:C48807 ;
+        foaf:page               <http://www.ebi.ac.uk/chembl/> .
