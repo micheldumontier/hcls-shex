@@ -192,9 +192,7 @@ BASE <http://rdf.ebi.ac.uk/chembl/>
       a dctypes:Dataset, dcat:Distribution, void:Dataset ;
       dct:title "ChEMBL Version 17 RDF Distribution"@en ;
       dct:alternative "ChEMBLdb17rdf"@en ;
-      dct:description "ChEMBL17 RDF distribution is a database of bioactive compounds, their quantitative properties and 
-      bioactivities (binding constants, pharmacology and ADMET, etc). The data is abstracted and curated from the primary 
-      scientific literature."@en ;
+      dct:description "ChEMBL17 RDF distribution is a database of bioactive compounds, their quantitative properties and bioactivities (binding constants, pharmacology and ADMET, etc). The data is abstracted and curated from the primary scientific literature."@en ;
       dct:created "2013-08"^^xsd:gYearMonth;
       pav:createdOn "2013-08"^^xsd:gYearMonth;
       pav:authoredOn "2013-07"^^xsd:gYearMonth;
