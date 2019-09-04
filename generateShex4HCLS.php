@@ -131,9 +131,7 @@ foreach($list AS $level => $a) {
     
 
 }
-echo $output;exit;
 
-
-
+file_put_contents("hcls.shex",$output);
 
 ?>
