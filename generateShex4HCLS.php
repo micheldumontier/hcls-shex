@@ -88,11 +88,15 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 $output = $prefix;
 
-foreach($list AS $level => $a) {
-    
-    if($level == "summary") $extra = "EXTRA rdf:type";
+foreach($list AS $level => $a) {    
+    $forcelabel = "";
+    if($forceSHOULD == true) $forcelabel = "ForceShould";
+    else if($forceMAY == true) $forcelabel = "ForceMay";
+    else if($force == true) $forcelabel = "ForceShouldMay";
 
-    $output .= "<".ucfirst($level)."LevelShape> $extra {".PHP_EOL;
+    $shapename = "HCLS".ucfirst($level).$forcelabel."Shape";
+    $extra = "EXTRA rdf:type";
+    $output .= "<$shapename> $extra {".PHP_EOL;
 
     foreach($a AS $requirement => $b) {
         $safe_requirement= str_replace(" ","-",$requirement);
