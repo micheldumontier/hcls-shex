@@ -1,5 +1,22 @@
 <?php
 
+// parameters
+$basefilename = "hcls";
+$filesuffix = ".shex";
+$forceSHOULD = false;
+$forceMAY = true;
+$force = false;
+
+
+//////
+$filename = $basefilename.$filesuffix;
+if($forceSHOULD === true) $filename = "hcls-force-SHOULD".$filesuffix;
+if($forceMAY === true) $filename = "hcls-force-MAY".$filesuffix;
+if($force === true) {
+    $forceSHOULD = true; $forceMAY = true;
+    $filename = "hcls-force-ALL".$filesuffix;
+}
+
 $table = file_get_contents("table.html" );
 $xml = "<?xml version='1.0' encoding='UTF-8'?>\n".$table;
 $xml=simplexml_load_string($xml) or die("Error: Cannot create object");
@@ -107,7 +124,14 @@ foreach($list AS $level => $a) {
                         $x = '';
                         if(($safe_requirement == "SHOULD") or ($safe_requirement == "MAY") or ($safe_requirement == "SHOULD-NOT")) {
                             $x = "*";
-                            if(isset($zeroOrOne[$predicate])) $x = "?";
+                            if($safe_requirement == "SHOULD" and $forceSHOULD === true) $x = "+";
+                            if($safe_requirement == "MAY" and $forceMAY === true) $x = "+";
+
+                            if(isset($zeroOrOne[$predicate])) {
+                                $x = "?";
+                                if($safe_requirement == "SHOULD" and $forceSHOULD === true) $x = "";
+                                if($safe_requirement == "MAY" and $forceMAY === true) $x = "";
+                            }
                         }
                         $expression = $predicate.' '.$value_type.$x;
                         if($x == "*") $cardinality = " zero or more ";
@@ -132,6 +156,6 @@ foreach($list AS $level => $a) {
 
 }
 
-file_put_contents("hcls.shex",$output);
+file_put_contents($filename,$output);
 
 ?>
