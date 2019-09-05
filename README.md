@@ -8,4 +8,4 @@ To run:
 php generateShex4HCLS.php
 ````
 
-and this will generate [hcls.shex](https://github.com/micheldumontier/hcls-shex/blob/master/hcls.shex) as output. You can use the shex content to validate HCLS dataset description files such as [chembl-full-description.ttl](https://github.com/micheldumontier/hcls-shex/blob/master/chembl-full-description.ttl) using [http://rdfshape.weso.es](http://rdfshape.weso.es).  The SHeX file contains 3 shapes: SummaryLevelShape, VersionLevelShape, and DistributionLevelShape.  
+and this will generate [hcls.shex](https://github.com/micheldumontier/hcls-shex/blob/master/hcls.shex) as output. You can use the shex content to validate HCLS dataset description files such as [chembl-full-description.ttl](https://github.com/micheldumontier/hcls-shex/blob/master/chembl-full-description.ttl) using [http://rdfshape.weso.es](http://rdfshape.weso.es).  The SHeX file contains 3 shapes: SummaryLevelShape, VersionLevelShape, and DistributionLevelShape (e.g. with the ShapeMap as :chembl @<SummaryLevelShape>).  
