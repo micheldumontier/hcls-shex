@@ -18,7 +18,12 @@ PREFIX void: <http://rdfs.org/ns/void#>
 PREFIX void-ext: <http://ldf.fi/void-ext#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-<HCLSSummaryShape> EXTRA rdf:type {
+<HCLSSummaryShape> IRI 
+  // dct:creator "Michel Dumontier"
+  // dct:created "2019-09-05 03:26:38"
+  // prov:used <https://github.com/micheldumontier/hcls-shex>        
+     EXTRA rdf:type 
+{
   rdf:type [dctypes:Dataset]  
     // rdfs:comment "summary level MUST use rdf:type with dctypes:Dataset"
     // :metadata-element "Type declaration"
@@ -330,7 +335,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     // :requirement-level :SHOULD;
 
 }
-<HCLSVersionShape> EXTRA rdf:type {
+<HCLSVersionShape> IRI 
+  // dct:creator "Michel Dumontier"
+  // dct:created "2019-09-05 03:26:38"
+  // prov:used <https://github.com/micheldumontier/hcls-shex>        
+     EXTRA rdf:type 
+{
   rdf:type [dctypes:Dataset]  
     // rdfs:comment "version level MUST use rdf:type with dctypes:Dataset"
     // :metadata-element "Type declaration"
@@ -642,7 +652,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     // :requirement-level :SHOULD-NOT;
 
 }
-<HCLSDistributionShape> EXTRA rdf:type {
+<HCLSDistributionShape> IRI 
+  // dct:creator "Michel Dumontier"
+  // dct:created "2019-09-05 03:26:38"
+  // prov:used <https://github.com/micheldumontier/hcls-shex>        
+     EXTRA rdf:type 
+{
   rdf:type [dcat:Distribution]?  
     // rdfs:comment "distribution level SHOULD use rdf:type with dctypes:Dataset"
     // :metadata-element "Type declaration"

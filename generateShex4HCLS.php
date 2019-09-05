@@ -95,8 +95,14 @@ foreach($list AS $level => $a) {
     else if($force == true) $forcelabel = "ForceShouldMay";
 
     $shapename = "HCLS".ucfirst($level).$forcelabel."Shape";
+    $annotations = "
+  // dct:creator \"Michel Dumontier\"
+  // dct:created \"".date("Y-m-d H:i:s")."\"
+  // prov:used <https://github.com/micheldumontier/hcls-shex>        
+    ";
     $extra = "EXTRA rdf:type";
-    $output .= "<$shapename> $extra {".PHP_EOL;
+    $output .= "<$shapename> IRI $annotations $extra 
+{".PHP_EOL;
 
     foreach($a AS $requirement => $b) {
         $safe_requirement= str_replace(" ","-",$requirement);
