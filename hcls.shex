@@ -25,17 +25,17 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     // :requirement-level :MUST;
 
  dct:title rdf:langString 
-    // rdfs:comment "summary level MUST use dct:title with rdf:langString"
+    // rdfs:comment "summary level MUST use dct:title with one rdf:langString"
     // :metadata-element "Title"
     // :requirement-level :MUST;
 
  dct:description rdf:langString 
-    // rdfs:comment "summary level MUST use dct:description with rdf:langString"
+    // rdfs:comment "summary level MUST use dct:description with one rdf:langString"
     // :metadata-element "Description"
     // :requirement-level :MUST;
 
  dct:publisher IRI 
-    // rdfs:comment "summary level MUST use dct:publisher with IRI"
+    // rdfs:comment "summary level MUST use dct:publisher with one IRI"
     // :metadata-element "Publisher"
     // :requirement-level :MUST;
 
@@ -95,7 +95,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     // :requirement-level :MUST-NOT;
 
  dct:language . {0} 
-    // rdfs:comment "summary level MUST NOT use dct:language with IRI  that is restricted to http://lexvo.org/id/iso639-3/{langtag}"
+    // rdfs:comment "summary level MUST NOT use dct:language with IRI that is restricted to http://lexvo.org/id/iso639-3/{langtag}"
     // :metadata-element "Language"
     // :requirement-level :MUST-NOT;
 
@@ -245,87 +245,87 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     // :requirement-level :MUST-NOT;
 
  dct:alternative rdf:langString* 
-    // rdfs:comment "summary level MAY use dct:alternative with zero or more  rdf:langString"
+    // rdfs:comment "summary level MAY use dct:alternative with zero or more rdf:langString"
     // :metadata-element "Alternative titles"
     // :requirement-level :MAY;
 
  dcat:keyword xsd:string* 
-    // rdfs:comment "summary level MAY use dcat:keyword with zero or more  xsd:string"
+    // rdfs:comment "summary level MAY use dcat:keyword with zero or more xsd:string"
     // :metadata-element "Keywords"
     // :requirement-level :MAY;
 
  dct:license IRI? 
-    // rdfs:comment "summary level MAY use dct:license with zero or one  IRI"
+    // rdfs:comment "summary level MAY use dct:license with zero or one IRI"
     // :metadata-element "License"
     // :requirement-level :MAY;
 
  dct:rights rdf:langString? 
-    // rdfs:comment "summary level MAY use dct:rights with zero or one  rdf:langString"
+    // rdfs:comment "summary level MAY use dct:rights with zero or one rdf:langString"
     // :metadata-element "Rights"
     // :requirement-level :MAY;
 
  dct:references IRI* 
-    // rdfs:comment "summary level MAY use dct:references with zero or more  IRI"
+    // rdfs:comment "summary level MAY use dct:references with zero or more IRI"
     // :metadata-element "References"
     // :requirement-level :MAY;
 
- dcat:theme IRI * 
-    // rdfs:comment "summary level MAY use dcat:theme with zero or more  IRI  that is restricted to skos:Concept"
+ dcat:theme IRI* 
+    // rdfs:comment "summary level MAY use dcat:theme with zero or more IRI that is restricted to skos:Concept"
     // :metadata-element "Concept descriptors"
     // :requirement-level :MAY;
 
  cito:citesAsAuthority IRI* 
-    // rdfs:comment "summary level MAY use cito:citesAsAuthority with zero or more  IRI"
+    // rdfs:comment "summary level MAY use cito:citesAsAuthority with zero or more IRI"
     // :metadata-element "Citations"
     // :requirement-level :MAY;
 
  rdfs:seeAlso IRI* 
-    // rdfs:comment "summary level MAY use rdfs:seeAlso with zero or more  IRI"
+    // rdfs:comment "summary level MAY use rdfs:seeAlso with zero or more IRI"
     // :metadata-element "Related material"
     // :requirement-level :MAY;
 
  dct:hasPart IRI* 
-    // rdfs:comment "summary level MAY use dct:hasPart with zero or more  IRI"
+    // rdfs:comment "summary level MAY use dct:hasPart with zero or more IRI"
     // :metadata-element "Partitions"
     // :requirement-level :MAY;
 
  idot:preferredPrefix xsd:string? 
-    // rdfs:comment "summary level MAY use idot:preferredPrefix with zero or one  xsd:string"
+    // rdfs:comment "summary level MAY use idot:preferredPrefix with zero or one xsd:string"
     // :metadata-element "Preferred prefix"
     // :requirement-level :MAY;
 
  idot:alternatePrefix xsd:string* 
-    // rdfs:comment "summary level MAY use idot:alternatePrefix with zero or more  xsd:string"
+    // rdfs:comment "summary level MAY use idot:alternatePrefix with zero or more xsd:string"
     // :metadata-element "Alternate prefix"
     // :requirement-level :MAY;
 
  pav:hasCurrentVersion IRI? 
-    // rdfs:comment "summary level MAY use pav:hasCurrentVersion with zero or one  IRI"
+    // rdfs:comment "summary level MAY use pav:hasCurrentVersion with zero or one IRI"
     // :metadata-element "Version linking"
     // :requirement-level :MAY;
 
  dcat:accessURL IRI* 
-    // rdfs:comment "summary level MAY use dcat:accessURL with zero or more  IRI"
+    // rdfs:comment "summary level MAY use dcat:accessURL with zero or more IRI"
     // :metadata-element "File directory"
     // :requirement-level :MAY;
 
  foaf:page IRI* 
-    // rdfs:comment "summary level SHOULD use foaf:page with zero or more  IRI"
+    // rdfs:comment "summary level SHOULD use foaf:page with zero or more IRI"
     // :metadata-element "HTML page"
     // :requirement-level :SHOULD;
 
  schemaorg:logo IRI? 
-    // rdfs:comment "summary level SHOULD use schemaorg:logo with zero or one  IRI"
+    // rdfs:comment "summary level SHOULD use schemaorg:logo with zero or one IRI"
     // :metadata-element "Logo"
     // :requirement-level :SHOULD;
 
- dct:accrualPeriodicity IRI ? 
-    // rdfs:comment "summary level SHOULD use dct:accrualPeriodicity with zero or one  IRI  that is restricted to dctypes:Frequency"
+ dct:accrualPeriodicity IRI? 
+    // rdfs:comment "summary level SHOULD use dct:accrualPeriodicity with zero or one IRI that is restricted to dctypes:Frequency"
     // :metadata-element "Update frequency"
     // :requirement-level :SHOULD;
 
  void:sparqlEndpoint IRI* 
-    // rdfs:comment "summary level SHOULD use void:sparqlEndpoint with zero or more  IRI"
+    // rdfs:comment "summary level SHOULD use void:sparqlEndpoint with zero or more IRI"
     // :metadata-element "SPARQL endpoint"
     // :requirement-level :SHOULD;
 
@@ -337,32 +337,32 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     // :requirement-level :MUST;
 
  dct:title rdf:langString 
-    // rdfs:comment "version level MUST use dct:title with rdf:langString"
+    // rdfs:comment "version level MUST use dct:title with one rdf:langString"
     // :metadata-element "Title"
     // :requirement-level :MUST;
 
  dct:description rdf:langString 
-    // rdfs:comment "version level MUST use dct:description with rdf:langString"
+    // rdfs:comment "version level MUST use dct:description with one rdf:langString"
     // :metadata-element "Description"
     // :requirement-level :MUST;
 
  dct:creator IRI 
-    // rdfs:comment "version level MUST use dct:creator with IRI"
+    // rdfs:comment "version level MUST use dct:creator with one IRI"
     // :metadata-element "Creators"
     // :requirement-level :MUST;
 
  dct:publisher IRI 
-    // rdfs:comment "version level MUST use dct:publisher with IRI"
+    // rdfs:comment "version level MUST use dct:publisher with one IRI"
     // :metadata-element "Publisher"
     // :requirement-level :MUST;
 
  pav:version xsd:string 
-    // rdfs:comment "version level MUST use pav:version with xsd:string"
+    // rdfs:comment "version level MUST use pav:version with one xsd:string"
     // :metadata-element "Version identifier"
     // :requirement-level :MUST;
 
  dct:isVersionOf IRI 
-    // rdfs:comment "version level MUST use dct:isVersionOf with IRI"
+    // rdfs:comment "version level MUST use dct:isVersionOf with one IRI"
     // :metadata-element "Version linking"
     // :requirement-level :MUST;
 
@@ -412,7 +412,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     // :requirement-level :MUST-NOT;
 
  dct:accrualPeriodicity . {0} 
-    // rdfs:comment "version level MUST NOT use dct:accrualPeriodicity with IRI  that is restricted to dctypes:Frequency"
+    // rdfs:comment "version level MUST NOT use dct:accrualPeriodicity with IRI that is restricted to dctypes:Frequency"
     // :metadata-element "Update frequency"
     // :requirement-level :MUST-NOT;
 
@@ -477,167 +477,167 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     // :requirement-level :MUST-NOT;
 
  dct:alternative rdf:langString* 
-    // rdfs:comment "version level MAY use dct:alternative with zero or more  rdf:langString"
+    // rdfs:comment "version level MAY use dct:alternative with zero or more rdf:langString"
     // :metadata-element "Alternative titles"
     // :requirement-level :MAY;
 
  pav:createdOn xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear? 
-    // rdfs:comment "version level MAY use pav:createdOn with zero or one  xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear"
+    // rdfs:comment "version level MAY use pav:createdOn with zero or one xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear"
     // :metadata-element "Other dates"
     // :requirement-level :MAY;
 
  pav:authoredOn xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear? 
-    // rdfs:comment "version level MAY use pav:authoredOn with zero or one  xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear"
+    // rdfs:comment "version level MAY use pav:authoredOn with zero or one xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear"
     // :metadata-element "Other dates"
     // :requirement-level :MAY;
 
  pav:curatedOn xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear? 
-    // rdfs:comment "version level MAY use pav:curatedOn with zero or one  xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear"
+    // rdfs:comment "version level MAY use pav:curatedOn with zero or one xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear"
     // :metadata-element "Other dates"
     // :requirement-level :MAY;
 
  dct:contributor IRI* 
-    // rdfs:comment "version level MAY use dct:contributor with zero or more  IRI"
+    // rdfs:comment "version level MAY use dct:contributor with zero or more IRI"
     // :metadata-element "Contributors"
     // :requirement-level :MAY;
 
  pav:createdBy IRI* 
-    // rdfs:comment "version level MAY use pav:createdBy with zero or more  IRI"
+    // rdfs:comment "version level MAY use pav:createdBy with zero or more IRI"
     // :metadata-element "Contributors"
     // :requirement-level :MAY;
 
  pav:authoredBy IRI* 
-    // rdfs:comment "version level MAY use pav:authoredBy with zero or more  IRI"
+    // rdfs:comment "version level MAY use pav:authoredBy with zero or more IRI"
     // :metadata-element "Contributors"
     // :requirement-level :MAY;
 
  pav:curatedBy IRI* 
-    // rdfs:comment "version level MAY use pav:curatedBy with zero or more  IRI"
+    // rdfs:comment "version level MAY use pav:curatedBy with zero or more IRI"
     // :metadata-element "Contributors"
     // :requirement-level :MAY;
 
  dcat:keyword xsd:string* 
-    // rdfs:comment "version level MAY use dcat:keyword with zero or more  xsd:string"
+    // rdfs:comment "version level MAY use dcat:keyword with zero or more xsd:string"
     // :metadata-element "Keywords"
     // :requirement-level :MAY;
 
  dct:rights rdf:langString? 
-    // rdfs:comment "version level MAY use dct:rights with zero or one  rdf:langString"
+    // rdfs:comment "version level MAY use dct:rights with zero or one rdf:langString"
     // :metadata-element "Rights"
     // :requirement-level :MAY;
 
  dct:references IRI* 
-    // rdfs:comment "version level MAY use dct:references with zero or more  IRI"
+    // rdfs:comment "version level MAY use dct:references with zero or more IRI"
     // :metadata-element "References"
     // :requirement-level :MAY;
 
- dcat:theme IRI * 
-    // rdfs:comment "version level MAY use dcat:theme with zero or more  IRI  that is restricted to skos:Concept"
+ dcat:theme IRI* 
+    // rdfs:comment "version level MAY use dcat:theme with zero or more IRI that is restricted to skos:Concept"
     // :metadata-element "Concept descriptors"
     // :requirement-level :MAY;
 
  dct:conformsTo IRI* 
-    // rdfs:comment "version level MAY use dct:conformsTo with zero or more  IRI"
+    // rdfs:comment "version level MAY use dct:conformsTo with zero or more IRI"
     // :metadata-element "Standards used"
     // :requirement-level :MAY;
 
  cito:citesAsAuthority IRI* 
-    // rdfs:comment "version level MAY use cito:citesAsAuthority with zero or more  IRI"
+    // rdfs:comment "version level MAY use cito:citesAsAuthority with zero or more IRI"
     // :metadata-element "Citations"
     // :requirement-level :MAY;
 
  rdfs:seeAlso IRI* 
-    // rdfs:comment "version level MAY use rdfs:seeAlso with zero or more  IRI"
+    // rdfs:comment "version level MAY use rdfs:seeAlso with zero or more IRI"
     // :metadata-element "Related material"
     // :requirement-level :MAY;
 
  dct:hasPart IRI* 
-    // rdfs:comment "version level MAY use dct:hasPart with zero or more  IRI"
+    // rdfs:comment "version level MAY use dct:hasPart with zero or more IRI"
     // :metadata-element "Partitions"
     // :requirement-level :MAY;
 
  idot:preferredPrefix xsd:string? 
-    // rdfs:comment "version level MAY use idot:preferredPrefix with zero or one  xsd:string"
+    // rdfs:comment "version level MAY use idot:preferredPrefix with zero or one xsd:string"
     // :metadata-element "Preferred prefix"
     // :requirement-level :MAY;
 
  idot:alternatePrefix xsd:string* 
-    // rdfs:comment "version level MAY use idot:alternatePrefix with zero or more  xsd:string"
+    // rdfs:comment "version level MAY use idot:alternatePrefix with zero or more xsd:string"
     // :metadata-element "Alternate prefix"
     // :requirement-level :MAY;
 
  dcat:accessURL IRI* 
-    // rdfs:comment "version level MAY use dcat:accessURL with zero or more  IRI"
+    // rdfs:comment "version level MAY use dcat:accessURL with zero or more IRI"
     // :metadata-element "File directory"
     // :requirement-level :MAY;
 
  dcat:landingPage IRI* 
-    // rdfs:comment "version level MAY use dcat:landingPage with zero or more  IRI"
+    // rdfs:comment "version level MAY use dcat:landingPage with zero or more IRI"
     // :metadata-element "Documentation"
     // :requirement-level :MAY;
 
  dct:created rdfs:Literal? 
-    // rdfs:comment "version level SHOULD use dct:created with zero or one  rdfs:Literal"
+    // rdfs:comment "version level SHOULD use dct:created with zero or one rdfs:Literal"
     // :metadata-element "Date created"
     // :requirement-level :SHOULD;
 
  dct:issued rdfs:Literal? 
-    // rdfs:comment "version level SHOULD use dct:issued with zero or one  rdfs:Literal"
+    // rdfs:comment "version level SHOULD use dct:issued with zero or one rdfs:Literal"
     // :metadata-element "Date of issue"
     // :requirement-level :SHOULD;
 
  foaf:page IRI* 
-    // rdfs:comment "version level SHOULD use foaf:page with zero or more  IRI"
+    // rdfs:comment "version level SHOULD use foaf:page with zero or more IRI"
     // :metadata-element "HTML page"
     // :requirement-level :SHOULD;
 
  schemaorg:logo IRI? 
-    // rdfs:comment "version level SHOULD use schemaorg:logo with zero or one  IRI"
+    // rdfs:comment "version level SHOULD use schemaorg:logo with zero or one IRI"
     // :metadata-element "Logo"
     // :requirement-level :SHOULD;
 
  dct:license IRI? 
-    // rdfs:comment "version level SHOULD use dct:license with zero or one  IRI"
+    // rdfs:comment "version level SHOULD use dct:license with zero or one IRI"
     // :metadata-element "License"
     // :requirement-level :SHOULD;
 
- dct:language IRI * 
-    // rdfs:comment "version level SHOULD use dct:language with zero or more  IRI  that is restricted to http://lexvo.org/id/iso639-3/{langtag}"
+ dct:language IRI* 
+    // rdfs:comment "version level SHOULD use dct:language with zero or more IRI that is restricted to http://lexvo.org/id/iso639-3/{langtag}"
     // :metadata-element "Language"
     // :requirement-level :SHOULD;
 
  pav:previousVersion IRI? 
-    // rdfs:comment "version level SHOULD use pav:previousVersion with zero or one  IRI"
+    // rdfs:comment "version level SHOULD use pav:previousVersion with zero or one IRI"
     // :metadata-element "Version linking"
     // :requirement-level :SHOULD;
 
  dct:source IRI* 
-    // rdfs:comment "version level SHOULD use dct:source with zero or more  IRI"
+    // rdfs:comment "version level SHOULD use dct:source with zero or more IRI"
     // :metadata-element "Data source provenance"
     // :requirement-level :SHOULD;
 
  pav:retrievedFrom IRI* 
-    // rdfs:comment "version level SHOULD use pav:retrievedFrom with zero or more  IRI"
+    // rdfs:comment "version level SHOULD use pav:retrievedFrom with zero or more IRI"
     // :metadata-element "Data source provenance"
     // :requirement-level :SHOULD;
 
  prov:wasDerivedFrom IRI* 
-    // rdfs:comment "version level SHOULD use prov:wasDerivedFrom with zero or more  IRI"
+    // rdfs:comment "version level SHOULD use prov:wasDerivedFrom with zero or more IRI"
     // :metadata-element "Data source provenance"
     // :requirement-level :SHOULD;
 
  pav:createdWith IRI* 
-    // rdfs:comment "version level SHOULD use pav:createdWith with zero or more  IRI"
+    // rdfs:comment "version level SHOULD use pav:createdWith with zero or more IRI"
     // :metadata-element "Creation tool"
     // :requirement-level :SHOULD;
 
  dcat:distribution IRI? 
-    // rdfs:comment "version level SHOULD use dcat:distribution with zero or one  IRI"
+    // rdfs:comment "version level SHOULD use dcat:distribution with zero or one IRI"
     // :metadata-element "Distribution description"
     // :requirement-level :SHOULD;
 
  void:sparqlEndpoint IRI* 
-    // rdfs:comment "version level SHOULD NOT use void:sparqlEndpoint with zero or more  IRI"
+    // rdfs:comment "version level SHOULD NOT use void:sparqlEndpoint with zero or more IRI"
     // :metadata-element "SPARQL endpoint"
     // :requirement-level :SHOULD-NOT;
 
@@ -649,127 +649,127 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     // :requirement-level :SHOULD;
 
  dct:created rdfs:Literal? 
-    // rdfs:comment "distribution level SHOULD use dct:created with zero or one  rdfs:Literal"
+    // rdfs:comment "distribution level SHOULD use dct:created with zero or one rdfs:Literal"
     // :metadata-element "Date created"
     // :requirement-level :SHOULD;
 
  dct:issued rdfs:Literal? 
-    // rdfs:comment "distribution level SHOULD use dct:issued with zero or one  rdfs:Literal"
+    // rdfs:comment "distribution level SHOULD use dct:issued with zero or one rdfs:Literal"
     // :metadata-element "Date of issue"
     // :requirement-level :SHOULD;
 
  foaf:page IRI* 
-    // rdfs:comment "distribution level SHOULD use foaf:page with zero or more  IRI"
+    // rdfs:comment "distribution level SHOULD use foaf:page with zero or more IRI"
     // :metadata-element "HTML page"
     // :requirement-level :SHOULD;
 
  schemaorg:logo IRI? 
-    // rdfs:comment "distribution level SHOULD use schemaorg:logo with zero or one  IRI"
+    // rdfs:comment "distribution level SHOULD use schemaorg:logo with zero or one IRI"
     // :metadata-element "Logo"
     // :requirement-level :SHOULD;
 
- dct:language IRI * 
-    // rdfs:comment "distribution level SHOULD use dct:language with zero or more  IRI  that is restricted to http://lexvo.org/id/iso639-3/{langtag}"
+ dct:language IRI* 
+    // rdfs:comment "distribution level SHOULD use dct:language with zero or more IRI that is restricted to http://lexvo.org/id/iso639-3/{langtag}"
     // :metadata-element "Language"
     // :requirement-level :SHOULD;
 
  void:vocabulary IRI* 
-    // rdfs:comment "distribution level SHOULD use void:vocabulary with zero or more  IRI"
+    // rdfs:comment "distribution level SHOULD use void:vocabulary with zero or more IRI"
     // :metadata-element "Vocabulary used"
     // :requirement-level :SHOULD;
 
  dct:conformsTo IRI* 
-    // rdfs:comment "distribution level SHOULD use dct:conformsTo with zero or more  IRI"
+    // rdfs:comment "distribution level SHOULD use dct:conformsTo with zero or more IRI"
     // :metadata-element "Standards used"
     // :requirement-level :SHOULD;
 
  idot:exampleIdentifier xsd:string* 
-    // rdfs:comment "distribution level SHOULD use idot:exampleIdentifier with zero or more  xsd:string"
+    // rdfs:comment "distribution level SHOULD use idot:exampleIdentifier with zero or more xsd:string"
     // :metadata-element "Example identifier"
     // :requirement-level :SHOULD;
 
  void:exampleResource IRI* 
-    // rdfs:comment "distribution level SHOULD use void:exampleResource with zero or more  IRI"
+    // rdfs:comment "distribution level SHOULD use void:exampleResource with zero or more IRI"
     // :metadata-element "Example resource"
     // :requirement-level :SHOULD;
 
  pav:version xsd:string? 
-    // rdfs:comment "distribution level SHOULD use pav:version with zero or one  xsd:string"
+    // rdfs:comment "distribution level SHOULD use pav:version with zero or one xsd:string"
     // :metadata-element "Version identifier"
     // :requirement-level :SHOULD;
 
  pav:previousVersion IRI? 
-    // rdfs:comment "distribution level SHOULD use pav:previousVersion with zero or one  IRI"
+    // rdfs:comment "distribution level SHOULD use pav:previousVersion with zero or one IRI"
     // :metadata-element "Version linking"
     // :requirement-level :SHOULD;
 
  dct:source IRI* 
-    // rdfs:comment "distribution level SHOULD use dct:source with zero or more  IRI"
+    // rdfs:comment "distribution level SHOULD use dct:source with zero or more IRI"
     // :metadata-element "Data source provenance"
     // :requirement-level :SHOULD;
 
  pav:retrievedFrom IRI* 
-    // rdfs:comment "distribution level SHOULD use pav:retrievedFrom with zero or more  IRI"
+    // rdfs:comment "distribution level SHOULD use pav:retrievedFrom with zero or more IRI"
     // :metadata-element "Data source provenance"
     // :requirement-level :SHOULD;
 
  prov:wasDerivedFrom IRI* 
-    // rdfs:comment "distribution level SHOULD use prov:wasDerivedFrom with zero or more  IRI"
+    // rdfs:comment "distribution level SHOULD use prov:wasDerivedFrom with zero or more IRI"
     // :metadata-element "Data source provenance"
     // :requirement-level :SHOULD;
 
  pav:createdWith IRI* 
-    // rdfs:comment "distribution level SHOULD use pav:createdWith with zero or more  IRI"
+    // rdfs:comment "distribution level SHOULD use pav:createdWith with zero or more IRI"
     // :metadata-element "Creation tool"
     // :requirement-level :SHOULD;
 
  dcat:downloadURL IRI* 
-    // rdfs:comment "distribution level SHOULD use dcat:downloadURL with zero or more  IRI"
+    // rdfs:comment "distribution level SHOULD use dcat:downloadURL with zero or more IRI"
     // :metadata-element "File URL"
     // :requirement-level :SHOULD;
 
  dcat:byteSize xsd:decimal* 
-    // rdfs:comment "distribution level SHOULD use dcat:byteSize with zero or more  xsd:decimal"
+    // rdfs:comment "distribution level SHOULD use dcat:byteSize with zero or more xsd:decimal"
     // :metadata-element "Byte size"
     // :requirement-level :SHOULD;
 
  void:dataDump IRI* 
-    // rdfs:comment "distribution level SHOULD use void:dataDump with zero or more  IRI"
+    // rdfs:comment "distribution level SHOULD use void:dataDump with zero or more IRI"
     // :metadata-element "RDF File URL"
     // :requirement-level :SHOULD;
 
  void:subset IRI* 
-    // rdfs:comment "distribution level SHOULD use void:subset with zero or more  IRI"
+    // rdfs:comment "distribution level SHOULD use void:subset with zero or more IRI"
     // :metadata-element "Linkset"
     // :requirement-level :SHOULD;
 
  void:triples xsd:integer* 
-    // rdfs:comment "distribution level SHOULD use void:triples with zero or more  xsd:integer"
+    // rdfs:comment "distribution level SHOULD use void:triples with zero or more xsd:integer"
     // :metadata-element "# of triples"
     // :requirement-level :SHOULD;
 
  void:entities xsd:integer* 
-    // rdfs:comment "distribution level SHOULD use void:entities with zero or more  xsd:integer"
+    // rdfs:comment "distribution level SHOULD use void:entities with zero or more xsd:integer"
     // :metadata-element "# of typed entities"
     // :requirement-level :SHOULD;
 
  void:distinctSubjects xsd:integer* 
-    // rdfs:comment "distribution level SHOULD use void:distinctSubjects with zero or more  xsd:integer"
+    // rdfs:comment "distribution level SHOULD use void:distinctSubjects with zero or more xsd:integer"
     // :metadata-element "# of subjects"
     // :requirement-level :SHOULD;
 
  void:properties xsd:integer* 
-    // rdfs:comment "distribution level SHOULD use void:properties with zero or more  xsd:integer"
+    // rdfs:comment "distribution level SHOULD use void:properties with zero or more xsd:integer"
     // :metadata-element "# of properties"
     // :requirement-level :SHOULD;
 
  void:distinctObjects xsd:integer* 
-    // rdfs:comment "distribution level SHOULD use void:distinctObjects with zero or more  xsd:integer"
+    // rdfs:comment "distribution level SHOULD use void:distinctObjects with zero or more xsd:integer"
     // :metadata-element "# of objects"
     // :requirement-level :SHOULD;
 
  void:classPartition IRI* 
-    // rdfs:comment "distribution level SHOULD use void:classPartition with zero or more  IRI"
+    // rdfs:comment "distribution level SHOULD use void:classPartition with zero or more IRI"
     // :metadata-element "# of classes"
     // :requirement-level :SHOULD;
 
@@ -779,152 +779,152 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     // :requirement-level :MUST;
 
  dct:title rdf:langString 
-    // rdfs:comment "distribution level MUST use dct:title with rdf:langString"
+    // rdfs:comment "distribution level MUST use dct:title with one rdf:langString"
     // :metadata-element "Title"
     // :requirement-level :MUST;
 
  dct:description rdf:langString 
-    // rdfs:comment "distribution level MUST use dct:description with rdf:langString"
+    // rdfs:comment "distribution level MUST use dct:description with one rdf:langString"
     // :metadata-element "Description"
     // :requirement-level :MUST;
 
  dct:creator IRI 
-    // rdfs:comment "distribution level MUST use dct:creator with IRI"
+    // rdfs:comment "distribution level MUST use dct:creator with one IRI"
     // :metadata-element "Creators"
     // :requirement-level :MUST;
 
  dct:publisher IRI 
-    // rdfs:comment "distribution level MUST use dct:publisher with IRI"
+    // rdfs:comment "distribution level MUST use dct:publisher with one IRI"
     // :metadata-element "Publisher"
     // :requirement-level :MUST;
 
  dct:license IRI 
-    // rdfs:comment "distribution level MUST use dct:license with IRI"
+    // rdfs:comment "distribution level MUST use dct:license with one IRI"
     // :metadata-element "License"
     // :requirement-level :MUST;
 
  dct:format IRI or xsd:String  
-    // rdfs:comment "distribution level MUST use dct:format with IRI or xsd:String "
+    // rdfs:comment "distribution level MUST use dct:format with one IRI or xsd:String "
     // :metadata-element "File format"
     // :requirement-level :MUST;
 
  dct:alternative rdf:langString* 
-    // rdfs:comment "distribution level MAY use dct:alternative with zero or more  rdf:langString"
+    // rdfs:comment "distribution level MAY use dct:alternative with zero or more rdf:langString"
     // :metadata-element "Alternative titles"
     // :requirement-level :MAY;
 
  pav:createdOn xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear? 
-    // rdfs:comment "distribution level MAY use pav:createdOn with zero or one  xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear"
+    // rdfs:comment "distribution level MAY use pav:createdOn with zero or one xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear"
     // :metadata-element "Other dates"
     // :requirement-level :MAY;
 
  pav:authoredOn xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear? 
-    // rdfs:comment "distribution level MAY use pav:authoredOn with zero or one  xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear"
+    // rdfs:comment "distribution level MAY use pav:authoredOn with zero or one xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear"
     // :metadata-element "Other dates"
     // :requirement-level :MAY;
 
  pav:curatedOn xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear? 
-    // rdfs:comment "distribution level MAY use pav:curatedOn with zero or one  xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear"
+    // rdfs:comment "distribution level MAY use pav:curatedOn with zero or one xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear"
     // :metadata-element "Other dates"
     // :requirement-level :MAY;
 
  dct:contributor IRI* 
-    // rdfs:comment "distribution level MAY use dct:contributor with zero or more  IRI"
+    // rdfs:comment "distribution level MAY use dct:contributor with zero or more IRI"
     // :metadata-element "Contributors"
     // :requirement-level :MAY;
 
  pav:createdBy IRI* 
-    // rdfs:comment "distribution level MAY use pav:createdBy with zero or more  IRI"
+    // rdfs:comment "distribution level MAY use pav:createdBy with zero or more IRI"
     // :metadata-element "Contributors"
     // :requirement-level :MAY;
 
  pav:authoredBy IRI* 
-    // rdfs:comment "distribution level MAY use pav:authoredBy with zero or more  IRI"
+    // rdfs:comment "distribution level MAY use pav:authoredBy with zero or more IRI"
     // :metadata-element "Contributors"
     // :requirement-level :MAY;
 
  pav:curatedBy IRI* 
-    // rdfs:comment "distribution level MAY use pav:curatedBy with zero or more  IRI"
+    // rdfs:comment "distribution level MAY use pav:curatedBy with zero or more IRI"
     // :metadata-element "Contributors"
     // :requirement-level :MAY;
 
  dcat:keyword xsd:string* 
-    // rdfs:comment "distribution level MAY use dcat:keyword with zero or more  xsd:string"
+    // rdfs:comment "distribution level MAY use dcat:keyword with zero or more xsd:string"
     // :metadata-element "Keywords"
     // :requirement-level :MAY;
 
  dct:rights rdf:langString? 
-    // rdfs:comment "distribution level MAY use dct:rights with zero or one  rdf:langString"
+    // rdfs:comment "distribution level MAY use dct:rights with zero or one rdf:langString"
     // :metadata-element "Rights"
     // :requirement-level :MAY;
 
  dct:references IRI* 
-    // rdfs:comment "distribution level MAY use dct:references with zero or more  IRI"
+    // rdfs:comment "distribution level MAY use dct:references with zero or more IRI"
     // :metadata-element "References"
     // :requirement-level :MAY;
 
- dcat:theme IRI * 
-    // rdfs:comment "distribution level MAY use dcat:theme with zero or more  IRI  that is restricted to skos:Concept"
+ dcat:theme IRI* 
+    // rdfs:comment "distribution level MAY use dcat:theme with zero or more IRI that is restricted to skos:Concept"
     // :metadata-element "Concept descriptors"
     // :requirement-level :MAY;
 
  cito:citesAsAuthority IRI* 
-    // rdfs:comment "distribution level MAY use cito:citesAsAuthority with zero or more  IRI"
+    // rdfs:comment "distribution level MAY use cito:citesAsAuthority with zero or more IRI"
     // :metadata-element "Citations"
     // :requirement-level :MAY;
 
  rdfs:seeAlso IRI* 
-    // rdfs:comment "distribution level MAY use rdfs:seeAlso with zero or more  IRI"
+    // rdfs:comment "distribution level MAY use rdfs:seeAlso with zero or more IRI"
     // :metadata-element "Related material"
     // :requirement-level :MAY;
 
  idot:preferredPrefix xsd:string? 
-    // rdfs:comment "distribution level MAY use idot:preferredPrefix with zero or one  xsd:string"
+    // rdfs:comment "distribution level MAY use idot:preferredPrefix with zero or one xsd:string"
     // :metadata-element "Preferred prefix"
     // :requirement-level :MAY;
 
  idot:alternatePrefix xsd:string* 
-    // rdfs:comment "distribution level MAY use idot:alternatePrefix with zero or more  xsd:string"
+    // rdfs:comment "distribution level MAY use idot:alternatePrefix with zero or more xsd:string"
     // :metadata-element "Alternate prefix"
     // :requirement-level :MAY;
 
  idot:identifierPattern xsd:string* 
-    // rdfs:comment "distribution level MAY use idot:identifierPattern with zero or more  xsd:string"
+    // rdfs:comment "distribution level MAY use idot:identifierPattern with zero or more xsd:string"
     // :metadata-element "Identifier pattern"
     // :requirement-level :MAY;
 
  void:uriRegexPattern xsd:string* 
-    // rdfs:comment "distribution level MAY use void:uriRegexPattern with zero or more  xsd:string"
+    // rdfs:comment "distribution level MAY use void:uriRegexPattern with zero or more xsd:string"
     // :metadata-element "URI pattern"
     // :requirement-level :MAY;
 
  idot:accessPattern idot:AccessPattern* 
-    // rdfs:comment "distribution level MAY use idot:accessPattern with zero or more  idot:AccessPattern"
+    // rdfs:comment "distribution level MAY use idot:accessPattern with zero or more idot:AccessPattern"
     // :metadata-element "File access pattern"
     // :requirement-level :MAY;
 
  sio:has-data-item IRI* 
-    // rdfs:comment "distribution level MAY use sio:has-data-item with zero or more  IRI"
+    // rdfs:comment "distribution level MAY use sio:has-data-item with zero or more IRI"
     // :metadata-element "Item listing"
     // :requirement-level :MAY;
 
  dcat:accessURL IRI* 
-    // rdfs:comment "distribution level MAY use dcat:accessURL with zero or more  IRI"
+    // rdfs:comment "distribution level MAY use dcat:accessURL with zero or more IRI"
     // :metadata-element "File directory"
     // :requirement-level :MAY;
 
  dcat:landingPage IRI* 
-    // rdfs:comment "distribution level MAY use dcat:landingPage with zero or more  IRI"
+    // rdfs:comment "distribution level MAY use dcat:landingPage with zero or more IRI"
     // :metadata-element "Documentation"
     // :requirement-level :MAY;
 
  void:classPartition IRI* 
-    // rdfs:comment "distribution level MAY use void:classPartition with zero or more  IRI"
+    // rdfs:comment "distribution level MAY use void:classPartition with zero or more IRI"
     // :metadata-element "class frequency"
     // :requirement-level :MAY;
 
  void:propertyPartition IRI* 
-    // rdfs:comment "distribution level MAY use void:propertyPartition with zero or more  IRI"
+    // rdfs:comment "distribution level MAY use void:propertyPartition with zero or more IRI"
     // :metadata-element "property frequency"
     // :requirement-level :MAY;
 
@@ -944,7 +944,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     // :requirement-level :MUST-NOT;
 
  dct:accrualPeriodicity . {0} 
-    // rdfs:comment "distribution level MUST NOT use dct:accrualPeriodicity with IRI  that is restricted to dctypes:Frequency"
+    // rdfs:comment "distribution level MUST NOT use dct:accrualPeriodicity with IRI that is restricted to dctypes:Frequency"
     // :metadata-element "Update frequency"
     // :requirement-level :MUST-NOT;
 
@@ -954,7 +954,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     // :requirement-level :MUST-NOT;
 
  void:sparqlEndpoint IRI* 
-    // rdfs:comment "distribution level SHOULD NOT use void:sparqlEndpoint with zero or more  IRI"
+    // rdfs:comment "distribution level SHOULD NOT use void:sparqlEndpoint with zero or more IRI"
     // :metadata-element "SPARQL endpoint"
     // :requirement-level :SHOULD-NOT;
 

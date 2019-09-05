@@ -7,7 +7,6 @@ $forceSHOULD = false;
 $forceMAY = false;
 $force = false;
 
-
 //////
 $options = getopt("f::");
 if(isset($options['f'])) {
@@ -122,48 +121,45 @@ foreach($list AS $level => $a) {
                 $value_restriction = '';
                 $p = strrpos($safe_value, "[");
                 if($p !== FALSE) {
-                    $value_type = substr($safe_value, 0, $p);
+                    $value_type = trim(substr($safe_value, 0, $p));
                     $value_restriction = ' that is restricted to '.substr($safe_value, $p+1,-1);
                 }
 
                 foreach($predicates AS $predicate) {
+                    $x = '';
                     $cardinality = '';
                     if($safe_requirement == "MUST-NOT") {
                         $expression = $predicate." . {0}";
-                    } else {
-                        $x = '';
+                    } else {                        
                         if(($safe_requirement == "SHOULD") or ($safe_requirement == "MAY") or ($safe_requirement == "SHOULD-NOT")) {
                             $x = "*";
-                            if($safe_requirement == "SHOULD" and $forceSHOULD === true) $x = "+";
-                            if($safe_requirement == "MAY" and $forceMAY === true) $x = "+";
+
+                            if($safe_requirement == "SHOULD" and $forceSHOULD == true) $x = "+";
+                            if($safe_requirement == "MAY" and $forceMAY == true) $x = "+";
 
                             if(isset($zeroOrOne[$predicate])) {
                                 $x = "?";
-                                if($safe_requirement == "SHOULD" and $forceSHOULD === true) $x = "";
-                                if($safe_requirement == "MAY" and $forceMAY === true) $x = "";
+                                if($safe_requirement == "SHOULD" and $forceSHOULD == true) $x = "";
+                                if($safe_requirement == "MAY" and $forceMAY == true) $x = "";
                             }
                         }
                         $expression = $predicate.' '.$value_type.$x;
-                        if($x == "*") $cardinality = " zero or more ";
-                        elseif($x == "?") $cardinality = " zero or one ";
+                        if($x == "*") $cardinality = " zero or more";
+                        elseif($x == "?") $cardinality = " zero or one";
+                        elseif($x == "+") $cardinality = " one or more";
+                        elseif($x == '') $cardinality = " one";
                     }
-                    
 
-                
                     $output .= " $expression ".PHP_EOL;
                     $output .= '    // rdfs:comment "'.$level.' level '.$requirement.' use '. $predicate.' with'.$cardinality.' '.$value_type.''.$value_restriction.'"'.PHP_EOL;
                     $output .= '    // :metadata-element "'.$c['label'].'"'.PHP_EOL;
                     $output .= '    // :requirement-level :'.$safe_requirement.';'.PHP_EOL.PHP_EOL;                
                 }
                 $alreadyseen[$level][$safe_requirement][$c['predicate']] = TRUE;
-                
             } 
         }
     }
-
     $output .= "}".PHP_EOL;
-    
-
 }
 
 file_put_contents($filename,$output);
