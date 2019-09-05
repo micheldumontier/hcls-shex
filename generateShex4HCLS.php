@@ -4,11 +4,23 @@
 $basefilename = "hcls";
 $filesuffix = ".shex";
 $forceSHOULD = false;
-$forceMAY = true;
+$forceMAY = false;
 $force = false;
 
 
 //////
+$options = getopt("f::");
+if(isset($options['f'])) {
+    $v = trim($options['f']);
+    if($v == "SHOULD") $forceSHOULD = true;
+    elseif($v == "MAY") $forceMAY = true;
+    elseif($v == "ALL") $force = true;
+    elseif(empty($v));
+    else {
+        echo "Options for -f are SHOULD, MAY, or ALL";exit;
+    }
+}
+
 $filename = $basefilename.$filesuffix;
 if($forceSHOULD === true) $filename = "hcls-force-SHOULD".$filesuffix;
 if($forceMAY === true) $filename = "hcls-force-MAY".$filesuffix;
@@ -25,10 +37,8 @@ foreach($xml->children() as $e => $o) {
     if(isset($o->th)) continue;
     $a = (array) $o->td;
     if(count($a) !=6 ) continue; 
-   # print_r($a);
 
     $obj = array();
-    
     $obj['label'] = $a[0];
     $obj['predicate'] = $a[1];
     if(!is_object($a[2])) {
@@ -113,7 +123,7 @@ foreach($list AS $level => $a) {
                 $p = strrpos($safe_value, "[");
                 if($p !== FALSE) {
                     $value_type = substr($safe_value, 0, $p);
-                    $value_restriction = 'that is restricted to '.substr($safe_value, $p+1,-1);
+                    $value_restriction = ' that is restricted to '.substr($safe_value, $p+1,-1);
                 }
 
                 foreach($predicates AS $predicate) {
@@ -141,7 +151,7 @@ foreach($list AS $level => $a) {
 
                 
                     $output .= " $expression ".PHP_EOL;
-                    $output .= '    // rdfs:comment "'.$level.' level '.$requirement.' use '. $predicate.' with'.$cardinality.$value_type.' '.$value_restriction.'"'.PHP_EOL;
+                    $output .= '    // rdfs:comment "'.$level.' level '.$requirement.' use '. $predicate.' with'.$cardinality.' '.$value_type.''.$value_restriction.'"'.PHP_EOL;
                     $output .= '    // :metadata-element "'.$c['label'].'"'.PHP_EOL;
                     $output .= '    // :requirement-level :'.$safe_requirement.';'.PHP_EOL.PHP_EOL;                
                 }
