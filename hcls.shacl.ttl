@@ -1,0 +1,1624 @@
+@prefix : <http://purl.org/hcls-metadata-spec/> .
+@prefix dctypes: <http://purl.org/dc/dcmitype/> .
+@prefix schemaorg: <http://schema.org/> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix pav:   <http://purl.org/pav/> .
+@prefix freq:  <http://purl.org/cld/freq/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void-ext: <http://ldf.fi/void-ext#> .
+@prefix cito:  <http://purl.org/spar/cito/> .
+@prefix idot:  <http://identifiers.org/idot/> .
+@prefix sd:    <http://www.w3.org/ns/sparql-service-description#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sio:   <http://semanticscience.org/resource/> .
+@prefix lexvo: <http://lexvo.org/id/iso639-3/> .
+@prefix dcat:  <http://www.w3.org/ns/dcat#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+_:b0    a       sh:NodeShape ;
+        sh:in   ( void:Dataset dcat:Distribution ) .
+_:b1    a       sh:NodeShape ;
+        sh:or   ( [ a            sh:NodeShape ;
+                    sh:datatype  xsd:dateTime
+                  ]
+                  [ a            sh:NodeShape ;
+                    sh:datatype  xsd:date
+                  ]
+                  [ a            sh:NodeShape ;
+                    sh:datatype  xsd:gYearMonth
+                  ]
+                  [ a            sh:NodeShape ;
+                    sh:datatype  xsd:gYear
+                  ]
+                ) .
+_:b2    a       sh:NodeShape .
+_:b3    a       sh:NodeShape ;
+        sh:in   ( dctypes:Dataset ) .
+_:b4    a            sh:NodeShape ;
+        sh:datatype  xsd:integer .
+
+<internal://base/HCLSDistributionForceShouldShape>
+        a       sh:NodeShape ;
+        sh:and  ( _:b5
+                  [ a            sh:NodeShape ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use dcat:accessURL with one or more IRI" ;
+                                   :metadata-element   "File directory" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dcat:accessURL
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use void:entities with one or more xsd:integer" ;
+                                   :metadata-element   "# of typed entities" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b4 ;
+                                   sh:path             void:entities
+                                 ] ;
+                    sh:property  [ a                       sh:PropertyShape ;
+                                   rdfs:comment            "distribution level MAY use void:classPartition with one or more IRI" ;
+                                   :metadata-element       "class frequency" ;
+                                   :requirement-level      :MAY ;
+                                   sh:path                 void:classPartition ;
+                                   sh:qualifiedMinCount    1 ;
+                                   sh:qualifiedValueShape  _:b6
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use dcat:landingPage with one or more IRI" ;
+                                   :metadata-element   "Documentation" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dcat:landingPage
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use void:distinctObjects with one or more xsd:integer" ;
+                                   :metadata-element   "# of objects" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b4 ;
+                                   sh:path             void:distinctObjects
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use void:exampleResource with one or more IRI" ;
+                                   :metadata-element   "Example resource" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             void:exampleResource
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MUST NOT use dcat:distribution with IRI" ;
+                                   :metadata-element   "Distribution description" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             dcat:distribution
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MUST use dct:description with one rdf:langString" ;
+                                   :metadata-element   "Description" ;
+                                   :requirement-level  :MUST ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b7 ;
+                                   sh:path             dct:description
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use rdfs:seeAlso with one or more IRI" ;
+                                   :metadata-element   "Related material" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             rdfs:seeAlso
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use dct:alternative with one or more rdf:langString" ;
+                                   :metadata-element   "Alternative titles" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b7 ;
+                                   sh:path             dct:alternative
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MUST NOT use pav:hasCurrentVersion with IRI" ;
+                                   :metadata-element   "Version linking" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             pav:hasCurrentVersion
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use prov:wasDerivedFrom with one or more IRI" ;
+                                   :metadata-element   "Data source provenance" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             prov:wasDerivedFrom
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MUST use dct:license with one IRI" ;
+                                   :metadata-element   "License" ;
+                                   :requirement-level  :MUST ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:license
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use pav:previousVersion with one IRI" ;
+                                   :metadata-element   "Version linking" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             pav:previousVersion
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use dct:source with one or more IRI" ;
+                                   :metadata-element   "Data source provenance" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:source
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use sio:has-data-item with one or more IRI" ;
+                                   :metadata-element   "Item listing" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             sio:has-data-item
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use dcat:keyword with one or more xsd:string" ;
+                                   :metadata-element   "Keywords" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b8 ;
+                                   sh:path             dcat:keyword
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use cito:citesAsAuthority with one or more IRI" ;
+                                   :metadata-element   "Citations" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             cito:citesAsAuthority
+                                 ] ;
+                    sh:property  [ a                       sh:PropertyShape ;
+                                   rdfs:comment            "distribution level SHOULD use rdf:type with dctypes:Dataset" ;
+                                   :metadata-element       "Type declaration" ;
+                                   :requirement-level      :SHOULD ;
+                                   sh:path                 rdf:type ;
+                                   sh:qualifiedMaxCount    1 ;
+                                   sh:qualifiedValueShape  [ a       sh:NodeShape ;
+                                                             sh:in   ( dcat:Distribution )
+                                                           ]
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use pav:curatedBy with one or more IRI" ;
+                                   :metadata-element   "Contributors" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             pav:curatedBy
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use dct:issued with one rdfs:Literal" ;
+                                   :metadata-element   "Date of issue" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b9 ;
+                                   sh:path             dct:issued
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use dct:conformsTo with one or more IRI" ;
+                                   :metadata-element   "Standards used" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:conformsTo
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use dcat:theme with one or more IRI that is restricted to skos:Concept" ;
+                                   :metadata-element   "Concept descriptors" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dcat:theme
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use void:dataDump with one or more IRI" ;
+                                   :metadata-element   "RDF File URL" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             void:dataDump
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MUST use dct:title with one rdf:langString" ;
+                                   :metadata-element   "Title" ;
+                                   :requirement-level  :MUST ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b7 ;
+                                   sh:path             dct:title
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use void:vocabulary with one or more IRI" ;
+                                   :metadata-element   "Vocabulary used" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             void:vocabulary
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use pav:createdBy with one or more IRI" ;
+                                   :metadata-element   "Contributors" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             pav:createdBy
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use dct:references with one or more IRI" ;
+                                   :metadata-element   "References" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:references
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MUST NOT use dct:isVersionOf with IRI" ;
+                                   :metadata-element   "Version linking" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             dct:isVersionOf
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MUST NOT use dct:hasPart with IRI" ;
+                                   :metadata-element   "Partitions" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             dct:hasPart
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use dct:rights with one rdf:langString" ;
+                                   :metadata-element   "Rights" ;
+                                   :requirement-level  :MAY ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b7 ;
+                                   sh:path             dct:rights
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use dcat:byteSize with one or more xsd:decimal" ;
+                                   :metadata-element   "Byte size" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             [ a            sh:NodeShape ;
+                                                         sh:datatype  xsd:decimal
+                                                       ] ;
+                                   sh:path             dcat:byteSize
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use dct:contributor with one or more IRI" ;
+                                   :metadata-element   "Contributors" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:contributor
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use idot:identifierPattern with one or more xsd:string" ;
+                                   :metadata-element   "Identifier pattern" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b8 ;
+                                   sh:path             idot:identifierPattern
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use pav:authoredOn with one xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear" ;
+                                   :metadata-element   "Other dates" ;
+                                   :requirement-level  :MAY ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b1 ;
+                                   sh:path             pav:authoredOn
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use schemaorg:logo with one IRI" ;
+                                   :metadata-element   "Logo" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             schemaorg:logo
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use pav:retrievedFrom with one or more IRI" ;
+                                   :metadata-element   "Data source provenance" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             pav:retrievedFrom
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use void:propertyPartition with one or more IRI" ;
+                                   :metadata-element   "property frequency" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             void:propertyPartition
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MUST use dct:format with one IRI or xsd:String " ;
+                                   :metadata-element   "File format" ;
+                                   :requirement-level  :MUST ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             [ a       sh:NodeShape ;
+                                                         sh:or   ( _:b6
+                                                                   [ a            sh:NodeShape ;
+                                                                     sh:datatype  xsd:String
+                                                                   ]
+                                                                 )
+                                                       ] ;
+                                   sh:path             dct:format
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use pav:createdOn with one xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear" ;
+                                   :metadata-element   "Other dates" ;
+                                   :requirement-level  :MAY ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b1 ;
+                                   sh:path             pav:createdOn
+                                 ] ;
+                    sh:property  [ a                       sh:PropertyShape ;
+                                   rdfs:comment            "distribution level MUST use rdf:type with void:Dataset or dcat:Distribution" ;
+                                   :metadata-element       "Type declaration" ;
+                                   :requirement-level      :MUST ;
+                                   sh:path                 rdf:type ;
+                                   sh:qualifiedMaxCount    2 ;
+                                   sh:qualifiedMinCount    2 ;
+                                   sh:qualifiedValueShape  _:b0
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use foaf:page with one or more IRI" ;
+                                   :metadata-element   "HTML page" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             foaf:page
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use idot:preferredPrefix with one xsd:string" ;
+                                   :metadata-element   "Preferred prefix" ;
+                                   :requirement-level  :MAY ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b8 ;
+                                   sh:path             idot:preferredPrefix
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use pav:curatedOn with one xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear" ;
+                                   :metadata-element   "Other dates" ;
+                                   :requirement-level  :MAY ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b1 ;
+                                   sh:path             pav:curatedOn
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use void:subset with one or more IRI" ;
+                                   :metadata-element   "Linkset" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             void:subset
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use pav:createdWith with one or more IRI" ;
+                                   :metadata-element   "Creation tool" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             pav:createdWith
+                                 ] ;
+                    sh:property  [ a                       sh:PropertyShape ;
+                                   rdfs:comment            "distribution level SHOULD use void:classPartition with one or more IRI" ;
+                                   :metadata-element       "# of classes" ;
+                                   :requirement-level      :SHOULD ;
+                                   sh:path                 void:classPartition ;
+                                   sh:qualifiedMinCount    1 ;
+                                   sh:qualifiedValueShape  _:b6
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use dct:created with one rdfs:Literal" ;
+                                   :metadata-element   "Date created" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b9 ;
+                                   sh:path             dct:created
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MUST use dct:publisher with one IRI" ;
+                                   :metadata-element   "Publisher" ;
+                                   :requirement-level  :MUST ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:publisher
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use void:distinctSubjects with one or more xsd:integer" ;
+                                   :metadata-element   "# of subjects" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b4 ;
+                                   sh:path             void:distinctSubjects
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use idot:exampleIdentifier with one or more xsd:string" ;
+                                   :metadata-element   "Example identifier" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b8 ;
+                                   sh:path             idot:exampleIdentifier
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MUST NOT use dct:accrualPeriodicity with IRI that is restricted to dctypes:Frequency" ;
+                                   :metadata-element   "Update frequency" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             dct:accrualPeriodicity
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use dct:language with one or more IRI that is restricted to http://lexvo.org/id/iso639-3/{langtag}" ;
+                                   :metadata-element   "Language" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:language
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use pav:authoredBy with one or more IRI" ;
+                                   :metadata-element   "Contributors" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             pav:authoredBy
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use void:properties with one or more xsd:integer" ;
+                                   :metadata-element   "# of properties" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b4 ;
+                                   sh:path             void:properties
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use idot:alternatePrefix with one or more xsd:string" ;
+                                   :metadata-element   "Alternate prefix" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b8 ;
+                                   sh:path             idot:alternatePrefix
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use void:uriRegexPattern with one or more xsd:string" ;
+                                   :metadata-element   "URI pattern" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b8 ;
+                                   sh:path             void:uriRegexPattern
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use void:triples with one or more xsd:integer" ;
+                                   :metadata-element   "# of triples" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b4 ;
+                                   sh:path             void:triples
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use pav:version with one xsd:string" ;
+                                   :metadata-element   "Version identifier" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b8 ;
+                                   sh:path             pav:version
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MUST use dct:creator with one IRI" ;
+                                   :metadata-element   "Creators" ;
+                                   :requirement-level  :MUST ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:creator
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level MAY use idot:accessPattern with one or more idot:AccessPattern" ;
+                                   :metadata-element   "File access pattern" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             [ a            sh:NodeShape ;
+                                                         sh:datatype  idot:AccessPattern
+                                                       ] ;
+                                   sh:path             idot:accessPattern
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD use dcat:downloadURL with one or more IRI" ;
+                                   :metadata-element   "File URL" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dcat:downloadURL
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "distribution level SHOULD NOT use void:sparqlEndpoint with zero or more IRI" ;
+                                   :metadata-element   "SPARQL endpoint" ;
+                                   :requirement-level  :SHOULD-NOT ;
+                                   sh:node             _:b6 ;
+                                   sh:path             void:sparqlEndpoint
+                                 ]
+                  ]
+                ) .
+_:b5    a            sh:NodeShape ;
+        sh:nodeKind  sh:IRI .
+_:b7    a            sh:NodeShape ;
+        sh:datatype  rdf:langString .
+_:b9    a            sh:NodeShape ;
+        sh:datatype  rdfs:Literal .
+_:b8    a            sh:NodeShape ;
+        sh:datatype  xsd:string .
+_:b6    a            sh:NodeShape ;
+        sh:nodeKind  sh:IRI .
+
+<internal://base/HCLSVersionForceShouldShape>
+        a       sh:NodeShape ;
+        sh:and  ( _:b5
+                  [ a            sh:NodeShape ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level SHOULD use dct:license with one IRI" ;
+                                   :metadata-element   "License" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:license
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST NOT use void:properties with xsd:integer" ;
+                                   :metadata-element   "# of properties" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:properties
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level SHOULD use dct:issued with one rdfs:Literal" ;
+                                   :metadata-element   "Date of issue" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b9 ;
+                                   sh:path             dct:issued
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST NOT use dct:accrualPeriodicity with IRI that is restricted to dctypes:Frequency" ;
+                                   :metadata-element   "Update frequency" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             dct:accrualPeriodicity
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MAY use cito:citesAsAuthority with one or more IRI" ;
+                                   :metadata-element   "Citations" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             cito:citesAsAuthority
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level SHOULD use dct:created with one rdfs:Literal" ;
+                                   :metadata-element   "Date created" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b9 ;
+                                   sh:path             dct:created
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST NOT use idot:exampleIdentifier with xsd:string" ;
+                                   :metadata-element   "Example identifier" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             idot:exampleIdentifier
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level SHOULD use pav:retrievedFrom with one or more IRI" ;
+                                   :metadata-element   "Data source provenance" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             pav:retrievedFrom
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST NOT use void:propertyPartition with IRI" ;
+                                   :metadata-element   "property frequency" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:propertyPartition
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level SHOULD use dct:language with one or more IRI that is restricted to http://lexvo.org/id/iso639-3/{langtag}" ;
+                                   :metadata-element   "Language" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:language
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MAY use dcat:keyword with one or more xsd:string" ;
+                                   :metadata-element   "Keywords" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b8 ;
+                                   sh:path             dcat:keyword
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST NOT use idot:accessPattern with idot:AccessPattern" ;
+                                   :metadata-element   "File access pattern" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             idot:accessPattern
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MAY use pav:createdBy with one or more IRI" ;
+                                   :metadata-element   "Contributors" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             pav:createdBy
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST use dct:creator with one IRI" ;
+                                   :metadata-element   "Creators" ;
+                                   :requirement-level  :MUST ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:creator
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MAY use dct:hasPart with one or more IRI" ;
+                                   :metadata-element   "Partitions" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:hasPart
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST use pav:version with one xsd:string" ;
+                                   :metadata-element   "Version identifier" ;
+                                   :requirement-level  :MUST ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b8 ;
+                                   sh:path             pav:version
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST NOT use void:distinctSubjects with xsd:integer" ;
+                                   :metadata-element   "# of subjects" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:distinctSubjects
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MAY use dcat:theme with one or more IRI that is restricted to skos:Concept" ;
+                                   :metadata-element   "Concept descriptors" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dcat:theme
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level SHOULD use pav:previousVersion with one IRI" ;
+                                   :metadata-element   "Version linking" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             pav:previousVersion
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MAY use dct:references with one or more IRI" ;
+                                   :metadata-element   "References" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:references
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST NOT use void:uriRegexPattern with xsd:string" ;
+                                   :metadata-element   "URI pattern" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:uriRegexPattern
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level SHOULD NOT use void:sparqlEndpoint with zero or more IRI" ;
+                                   :metadata-element   "SPARQL endpoint" ;
+                                   :requirement-level  :SHOULD-NOT ;
+                                   sh:node             _:b6 ;
+                                   sh:path             void:sparqlEndpoint
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST NOT use void:vocabulary with IRI" ;
+                                   :metadata-element   "Vocabulary used" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:vocabulary
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST use dct:isVersionOf with one IRI" ;
+                                   :metadata-element   "Version linking" ;
+                                   :requirement-level  :MUST ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:isVersionOf
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST NOT use dcat:byteSize with xsd:decimal" ;
+                                   :metadata-element   "Byte size" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             dcat:byteSize
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MAY use idot:alternatePrefix with one or more xsd:string" ;
+                                   :metadata-element   "Alternate prefix" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b8 ;
+                                   sh:path             idot:alternatePrefix
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MAY use dct:rights with one rdf:langString" ;
+                                   :metadata-element   "Rights" ;
+                                   :requirement-level  :MAY ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b7 ;
+                                   sh:path             dct:rights
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST NOT use sio:has-data-item with IRI" ;
+                                   :metadata-element   "Item listing" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             sio:has-data-item
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MAY use pav:authoredBy with one or more IRI" ;
+                                   :metadata-element   "Contributors" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             pav:authoredBy
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MAY use pav:curatedBy with one or more IRI" ;
+                                   :metadata-element   "Contributors" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             pav:curatedBy
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST NOT use idot:identifierPattern with xsd:string" ;
+                                   :metadata-element   "Identifier pattern" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             idot:identifierPattern
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST NOT use pav:hasCurrentVersion with IRI" ;
+                                   :metadata-element   "Version linking" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             pav:hasCurrentVersion
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST NOT use void:dataDump with IRI" ;
+                                   :metadata-element   "RDF File URL" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:dataDump
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level SHOULD use schemaorg:logo with one IRI" ;
+                                   :metadata-element   "Logo" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             schemaorg:logo
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST NOT use void:entities with xsd:integer" ;
+                                   :metadata-element   "# of typed entities" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:entities
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST NOT use dcat:downloadURL with IRI" ;
+                                   :metadata-element   "File URL" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             dcat:downloadURL
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST NOT use void:exampleResource with IRI" ;
+                                   :metadata-element   "Example resource" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:exampleResource
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MAY use dct:conformsTo with one or more IRI" ;
+                                   :metadata-element   "Standards used" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:conformsTo
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MAY use dcat:landingPage with one or more IRI" ;
+                                   :metadata-element   "Documentation" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dcat:landingPage
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST NOT use void:triples with xsd:integer" ;
+                                   :metadata-element   "# of triples" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:triples
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MAY use rdfs:seeAlso with one or more IRI" ;
+                                   :metadata-element   "Related material" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             rdfs:seeAlso
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MAY use pav:createdOn with one xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear" ;
+                                   :metadata-element   "Other dates" ;
+                                   :requirement-level  :MAY ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b1 ;
+                                   sh:path             pav:createdOn
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level SHOULD use pav:createdWith with one or more IRI" ;
+                                   :metadata-element   "Creation tool" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             pav:createdWith
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MAY use pav:curatedOn with one xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear" ;
+                                   :metadata-element   "Other dates" ;
+                                   :requirement-level  :MAY ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b1 ;
+                                   sh:path             pav:curatedOn
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level SHOULD use prov:wasDerivedFrom with one or more IRI" ;
+                                   :metadata-element   "Data source provenance" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             prov:wasDerivedFrom
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MAY use idot:preferredPrefix with one xsd:string" ;
+                                   :metadata-element   "Preferred prefix" ;
+                                   :requirement-level  :MAY ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b8 ;
+                                   sh:path             idot:preferredPrefix
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST NOT use void:distinctObjects with xsd:integer" ;
+                                   :metadata-element   "# of objects" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:distinctObjects
+                                 ] ;
+                    sh:property  [ a                       sh:PropertyShape ;
+                                   rdfs:comment            "version level MUST use rdf:type with dctypes:Dataset" ;
+                                   :metadata-element       "Type declaration" ;
+                                   :requirement-level      :MUST ;
+                                   sh:path                 rdf:type ;
+                                   sh:qualifiedMaxCount    1 ;
+                                   sh:qualifiedMinCount    1 ;
+                                   sh:qualifiedValueShape  _:b3
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST use dct:description with one rdf:langString" ;
+                                   :metadata-element   "Description" ;
+                                   :requirement-level  :MUST ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b7 ;
+                                   sh:path             dct:description
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST NOT use void:subset with IRI" ;
+                                   :metadata-element   "Linkset" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:subset
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MAY use dct:alternative with one or more rdf:langString" ;
+                                   :metadata-element   "Alternative titles" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b7 ;
+                                   sh:path             dct:alternative
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level SHOULD use foaf:page with one or more IRI" ;
+                                   :metadata-element   "HTML page" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             foaf:page
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MAY use pav:authoredOn with one xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear" ;
+                                   :metadata-element   "Other dates" ;
+                                   :requirement-level  :MAY ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b1 ;
+                                   sh:path             pav:authoredOn
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level SHOULD use dcat:distribution with one IRI" ;
+                                   :metadata-element   "Distribution description" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dcat:distribution
+                                 ] ;
+                    sh:property  [ a                       sh:PropertyShape ;
+                                   rdfs:comment            "version level MUST NOT use rdf:type with void:Dataset or dcat:Distribution" ;
+                                   :metadata-element       "Type declaration" ;
+                                   :requirement-level      :MUST-NOT ;
+                                   sh:path                 rdf:type ;
+                                   sh:qualifiedMaxCount    0 ;
+                                   sh:qualifiedValueShape  _:b0
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST NOT use void:classPartition with IRI" ;
+                                   :metadata-element   "# of classes" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:classPartition
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MAY use dct:contributor with one or more IRI" ;
+                                   :metadata-element   "Contributors" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:contributor
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST NOT use dct:format with IRI or xsd:String " ;
+                                   :metadata-element   "File format" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             dct:format
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST use dct:title with one rdf:langString" ;
+                                   :metadata-element   "Title" ;
+                                   :requirement-level  :MUST ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b7 ;
+                                   sh:path             dct:title
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MUST use dct:publisher with one IRI" ;
+                                   :metadata-element   "Publisher" ;
+                                   :requirement-level  :MUST ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:publisher
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level MAY use dcat:accessURL with one or more IRI" ;
+                                   :metadata-element   "File directory" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dcat:accessURL
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "version level SHOULD use dct:source with one or more IRI" ;
+                                   :metadata-element   "Data source provenance" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:source
+                                 ]
+                  ]
+                ) .
+
+<internal://base/HCLSSummaryForceShouldShape>
+        a       sh:NodeShape ;
+        sh:and  ( _:b5
+                  [ a            sh:NodeShape ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use pav:curatedOn with xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear" ;
+                                   :metadata-element   "Other dates" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             pav:curatedOn
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level SHOULD use dct:accrualPeriodicity with one IRI that is restricted to dctypes:Frequency" ;
+                                   :metadata-element   "Update frequency" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:accrualPeriodicity
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MAY use dct:alternative with one or more rdf:langString" ;
+                                   :metadata-element   "Alternative titles" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b7 ;
+                                   sh:path             dct:alternative
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use idot:identifierPattern with xsd:string" ;
+                                   :metadata-element   "Identifier pattern" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             idot:identifierPattern
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use void:uriRegexPattern with xsd:string" ;
+                                   :metadata-element   "URI pattern" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:uriRegexPattern
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use dct:contributor with IRI" ;
+                                   :metadata-element   "Contributors" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             dct:contributor
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use void:subset with IRI" ;
+                                   :metadata-element   "Linkset" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:subset
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use void:classPartition with IRI" ;
+                                   :metadata-element   "# of classes" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:classPartition
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use dct:conformsTo with IRI" ;
+                                   :metadata-element   "Standards used" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             dct:conformsTo
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use void:properties with xsd:integer" ;
+                                   :metadata-element   "# of properties" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:properties
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level SHOULD use void:sparqlEndpoint with one or more IRI" ;
+                                   :metadata-element   "SPARQL endpoint" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             void:sparqlEndpoint
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level SHOULD use foaf:page with one or more IRI" ;
+                                   :metadata-element   "HTML page" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             foaf:page
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use void:dataDump with IRI" ;
+                                   :metadata-element   "RDF File URL" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:dataDump
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST use dct:publisher with one IRI" ;
+                                   :metadata-element   "Publisher" ;
+                                   :requirement-level  :MUST ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:publisher
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use dct:format with IRI or xsd:String " ;
+                                   :metadata-element   "File format" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             dct:format
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use void:propertyPartition with IRI" ;
+                                   :metadata-element   "property frequency" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:propertyPartition
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use sio:has-data-item with IRI" ;
+                                   :metadata-element   "Item listing" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             sio:has-data-item
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MAY use idot:preferredPrefix with one xsd:string" ;
+                                   :metadata-element   "Preferred prefix" ;
+                                   :requirement-level  :MAY ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b8 ;
+                                   sh:path             idot:preferredPrefix
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use idot:exampleIdentifier with xsd:string" ;
+                                   :metadata-element   "Example identifier" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             idot:exampleIdentifier
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MAY use cito:citesAsAuthority with one or more IRI" ;
+                                   :metadata-element   "Citations" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             cito:citesAsAuthority
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use pav:authoredBy with IRI" ;
+                                   :metadata-element   "Contributors" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             pav:authoredBy
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MAY use rdfs:seeAlso with one or more IRI" ;
+                                   :metadata-element   "Related material" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             rdfs:seeAlso
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use pav:previousVersion with IRI" ;
+                                   :metadata-element   "Version linking" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             pav:previousVersion
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use void:vocabulary with IRI" ;
+                                   :metadata-element   "Vocabulary used" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:vocabulary
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use pav:curatedBy with IRI" ;
+                                   :metadata-element   "Contributors" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             pav:curatedBy
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use pav:createdOn with xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear" ;
+                                   :metadata-element   "Other dates" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             pav:createdOn
+                                 ] ;
+                    sh:property  [ a                       sh:PropertyShape ;
+                                   rdfs:comment            "summary level MUST NOT use rdf:type with void:Dataset or dcat:Distribution" ;
+                                   :metadata-element       "Type declaration" ;
+                                   :requirement-level      :MUST-NOT ;
+                                   sh:path                 rdf:type ;
+                                   sh:qualifiedMaxCount    0 ;
+                                   sh:qualifiedValueShape  _:b0
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use idot:accessPattern with idot:AccessPattern" ;
+                                   :metadata-element   "File access pattern" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             idot:accessPattern
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MAY use dcat:theme with one or more IRI that is restricted to skos:Concept" ;
+                                   :metadata-element   "Concept descriptors" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dcat:theme
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MAY use dct:rights with one rdf:langString" ;
+                                   :metadata-element   "Rights" ;
+                                   :requirement-level  :MAY ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b7 ;
+                                   sh:path             dct:rights
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use dcat:byteSize with xsd:decimal" ;
+                                   :metadata-element   "Byte size" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             dcat:byteSize
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use pav:createdWith with IRI" ;
+                                   :metadata-element   "Creation tool" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             pav:createdWith
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use pav:authoredOn with xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear" ;
+                                   :metadata-element   "Other dates" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             pav:authoredOn
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level SHOULD use schemaorg:logo with one IRI" ;
+                                   :metadata-element   "Logo" ;
+                                   :requirement-level  :SHOULD ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             schemaorg:logo
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use void:distinctObjects with xsd:integer" ;
+                                   :metadata-element   "# of objects" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:distinctObjects
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use pav:createdBy with IRI" ;
+                                   :metadata-element   "Contributors" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             pav:createdBy
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use void:triples with xsd:integer" ;
+                                   :metadata-element   "# of triples" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:triples
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use dcat:distribution with IRI" ;
+                                   :metadata-element   "Distribution description" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             dcat:distribution
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MAY use dct:hasPart with one or more IRI" ;
+                                   :metadata-element   "Partitions" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:hasPart
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use dct:language with IRI that is restricted to http://lexvo.org/id/iso639-3/{langtag}" ;
+                                   :metadata-element   "Language" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             dct:language
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST use dct:description with one rdf:langString" ;
+                                   :metadata-element   "Description" ;
+                                   :requirement-level  :MUST ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b7 ;
+                                   sh:path             dct:description
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use dct:created with rdfs:Literal" ;
+                                   :metadata-element   "Date created" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             dct:created
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use prov:wasDerivedFrom with IRI" ;
+                                   :metadata-element   "Data source provenance" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             prov:wasDerivedFrom
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use pav:retrievedFrom with IRI" ;
+                                   :metadata-element   "Data source provenance" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             pav:retrievedFrom
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use pav:version with xsd:string" ;
+                                   :metadata-element   "Version identifier" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             pav:version
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use dcat:downloadURL with IRI" ;
+                                   :metadata-element   "File URL" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             dcat:downloadURL
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use dct:source with IRI" ;
+                                   :metadata-element   "Data source provenance" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             dct:source
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MAY use dct:license with one IRI" ;
+                                   :metadata-element   "License" ;
+                                   :requirement-level  :MAY ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:license
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST use dct:title with one rdf:langString" ;
+                                   :metadata-element   "Title" ;
+                                   :requirement-level  :MUST ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b7 ;
+                                   sh:path             dct:title
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use dct:creator with IRI" ;
+                                   :metadata-element   "Creators" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             dct:creator
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MAY use dcat:accessURL with one or more IRI" ;
+                                   :metadata-element   "File directory" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dcat:accessURL
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use dct:isVersionOf with IRI" ;
+                                   :metadata-element   "Version linking" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             dct:isVersionOf
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use dct:issued with rdfs:Literal" ;
+                                   :metadata-element   "Date of issue" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             dct:issued
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use void:entities with xsd:integer" ;
+                                   :metadata-element   "# of typed entities" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:entities
+                                 ] ;
+                    sh:property  [ a                       sh:PropertyShape ;
+                                   rdfs:comment            "summary level MUST use rdf:type with dctypes:Dataset" ;
+                                   :metadata-element       "Type declaration" ;
+                                   :requirement-level      :MUST ;
+                                   sh:path                 rdf:type ;
+                                   sh:qualifiedMaxCount    1 ;
+                                   sh:qualifiedMinCount    1 ;
+                                   sh:qualifiedValueShape  _:b3
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use dcat:landingPage with IRI" ;
+                                   :metadata-element   "Documentation" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             dcat:landingPage
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use void:distinctSubjects with xsd:integer" ;
+                                   :metadata-element   "# of subjects" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:distinctSubjects
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MAY use idot:alternatePrefix with one or more xsd:string" ;
+                                   :metadata-element   "Alternate prefix" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b8 ;
+                                   sh:path             idot:alternatePrefix
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MUST NOT use void:exampleResource with IRI" ;
+                                   :metadata-element   "Example resource" ;
+                                   :requirement-level  :MUST-NOT ;
+                                   sh:maxCount         0 ;
+                                   sh:node             _:b2 ;
+                                   sh:path             void:exampleResource
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MAY use pav:hasCurrentVersion with one IRI" ;
+                                   :metadata-element   "Version linking" ;
+                                   :requirement-level  :MAY ;
+                                   sh:maxCount         1 ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             pav:hasCurrentVersion
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MAY use dcat:keyword with one or more xsd:string" ;
+                                   :metadata-element   "Keywords" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b8 ;
+                                   sh:path             dcat:keyword
+                                 ] ;
+                    sh:property  [ a                   sh:PropertyShape ;
+                                   rdfs:comment        "summary level MAY use dct:references with one or more IRI" ;
+                                   :metadata-element   "References" ;
+                                   :requirement-level  :MAY ;
+                                   sh:minCount         1 ;
+                                   sh:node             _:b6 ;
+                                   sh:path             dct:references
+                                 ]
+                  ]
+                ) .
+"
