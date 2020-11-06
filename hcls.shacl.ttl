@@ -1621,4 +1621,3 @@ _:b6    a            sh:NodeShape ;
                                  ]
                   ]
                 ) .
-"
