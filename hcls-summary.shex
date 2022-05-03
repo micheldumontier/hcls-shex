@@ -1,0 +1,337 @@
+PREFIX : <http://purl.org/hcls-metadata-spec/>
+PREFIX cito: <http://purl.org/spar/cito/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX dctypes: <http://purl.org/dc/dcmitype/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX freq: <http://purl.org/cld/freq/>
+PREFIX idot: <http://identifiers.org/idot/>
+PREFIX lexvo: <http://lexvo.org/id/iso639-3/>
+PREFIX pav: <http://purl.org/pav/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schemaorg: <http://schema.org/>
+PREFIX sd: <http://www.w3.org/ns/sparql-service-description#>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX void-ext: <http://ldf.fi/void-ext#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+<HCLSSummaryShape> IRI 
+   # dct:creator "Michel Dumontier"
+   # dct:created "2019-09-05 03:26:38"
+   # prov:used <https://github.com/micheldumontier/hcls-shex>        
+     EXTRA rdf:type 
+{
+  rdf:type [dctypes:Dataset];
+    # rdfs:comment "summary level MUST use rdf:type with dctypes:Dataset"
+    # :metadata-element "Type declaration"
+    # :requirement-level :MUST;
+
+ dct:title rdf:langString ;
+    # rdfs:comment "summary level MUST use dct:title with one rdf:langString"
+    # :metadata-element "Title"
+    # :requirement-level :MUST;
+
+ dct:description rdf:langString ;
+    # rdfs:comment "summary level MUST use dct:description with one rdf:langString"
+    # :metadata-element "Description"
+    # :requirement-level :MUST;
+
+ dct:publisher IRI ;
+    # rdfs:comment "summary level MUST use dct:publisher with one IRI"
+    # :metadata-element "Publisher"
+    # :requirement-level :MUST;
+
+  rdf:type [void:Dataset dcat:Distribution] {0}  ;
+    # rdfs:comment "summary level MUST NOT use rdf:type with void:Dataset or dcat:Distribution"
+    # :metadata-element "Type declaration"
+    # :requirement-level :MUST-NOT;
+
+ dct:created . {0} ;
+    # rdfs:comment "summary level MUST NOT use dct:created with rdfs:Literal"
+    # :metadata-element "Date created"
+    # :requirement-level :MUST-NOT;
+
+ pav:createdOn . {0} ;
+    # rdfs:comment "summary level MUST NOT use pav:createdOn with xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear"
+    # :metadata-element "Other dates"
+    # :requirement-level :MUST-NOT;
+
+ pav:authoredOn . {0} ;
+    # rdfs:comment "summary level MUST NOT use pav:authoredOn with xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear"
+    # :metadata-element "Other dates"
+    # :requirement-level :MUST-NOT;
+
+ pav:curatedOn . {0} ;
+    # rdfs:comment "summary level MUST NOT use pav:curatedOn with xsd:dateTime or xsd:date or xsd:gYearMonth or xsd:gYear"
+    # :metadata-element "Other dates"
+    # :requirement-level :MUST-NOT;
+
+ dct:creator . {0} ;
+    # rdfs:comment "summary level MUST NOT use dct:creator with IRI"
+    # :metadata-element "Creators"
+    # :requirement-level :MUST-NOT;
+
+ dct:contributor . {0} ;
+    # rdfs:comment "summary level MUST NOT use dct:contributor with IRI"
+    # :metadata-element "Contributors"
+    # :requirement-level :MUST-NOT;
+
+ pav:createdBy . {0} ;
+    # rdfs:comment "summary level MUST NOT use pav:createdBy with IRI"
+    # :metadata-element "Contributors"
+    # :requirement-level :MUST-NOT;
+
+ pav:authoredBy . {0} ;
+    # rdfs:comment "summary level MUST NOT use pav:authoredBy with IRI"
+    # :metadata-element "Contributors"
+    # :requirement-level :MUST-NOT;
+
+ pav:curatedBy . {0} ;
+    # rdfs:comment "summary level MUST NOT use pav:curatedBy with IRI"
+    # :metadata-element "Contributors"
+    # :requirement-level :MUST-NOT;
+
+ dct:issued . {0} ;
+    # rdfs:comment "summary level MUST NOT use dct:issued with rdfs:Literal"
+    # :metadata-element "Date of issue"
+    # :requirement-level :MUST-NOT;
+
+ dct:language . {0} ;
+    # rdfs:comment "summary level MUST NOT use dct:language with IRI that is restricted to http://lexvo.org/id/iso639-3/{langtag}"
+    # :metadata-element "Language"
+    # :requirement-level :MUST-NOT;
+
+ void:vocabulary . {0} ;
+    # rdfs:comment "summary level MUST NOT use void:vocabulary with IRI"
+    # :metadata-element "Vocabulary used"
+    # :requirement-level :MUST-NOT;
+
+ dct:conformsTo . {0} ;
+    # rdfs:comment "summary level MUST NOT use dct:conformsTo with IRI"
+    # :metadata-element "Standards used"
+    # :requirement-level :MUST-NOT;
+
+ idot:identifierPattern . {0} ;
+    # rdfs:comment "summary level MUST NOT use idot:identifierPattern with xsd:string"
+    # :metadata-element "Identifier pattern"
+    # :requirement-level :MUST-NOT;
+
+ void:uriRegexPattern . {0} ;
+    # rdfs:comment "summary level MUST NOT use void:uriRegexPattern with xsd:string"
+    # :metadata-element "URI pattern"
+    # :requirement-level :MUST-NOT;
+
+ idot:accessPattern . {0} ;
+    # rdfs:comment "summary level MUST NOT use idot:accessPattern with idot:AccessPattern"
+    # :metadata-element "File access pattern"
+    # :requirement-level :MUST-NOT;
+
+ idot:exampleIdentifier . {0} ;
+    # rdfs:comment "summary level MUST NOT use idot:exampleIdentifier with xsd:string"
+    # :metadata-element "Example identifier"
+    # :requirement-level :MUST-NOT;
+
+ void:exampleResource . {0} ;
+    # rdfs:comment "summary level MUST NOT use void:exampleResource with IRI"
+    # :metadata-element "Example resource"
+    # :requirement-level :MUST-NOT;
+
+ pav:version . {0} ;
+    # rdfs:comment "summary level MUST NOT use pav:version with xsd:string"
+    # :metadata-element "Version identifier"
+    # :requirement-level :MUST-NOT;
+
+ dct:isVersionOf . {0} ;
+    # rdfs:comment "summary level MUST NOT use dct:isVersionOf with IRI"
+    # :metadata-element "Version linking"
+    # :requirement-level :MUST-NOT;
+
+ pav:previousVersion . {0} ;
+    # rdfs:comment "summary level MUST NOT use pav:previousVersion with IRI"
+    # :metadata-element "Version linking"
+    # :requirement-level :MUST-NOT;
+
+ dct:source . {0} ;
+    # rdfs:comment "summary level MUST NOT use dct:source with IRI"
+    # :metadata-element "Data source provenance"
+    # :requirement-level :MUST-NOT;
+
+ pav:retrievedFrom . {0} ;
+    # rdfs:comment "summary level MUST NOT use pav:retrievedFrom with IRI"
+    # :metadata-element "Data source provenance"
+    # :requirement-level :MUST-NOT;
+
+ prov:wasDerivedFrom . {0} ;
+    # rdfs:comment "summary level MUST NOT use prov:wasDerivedFrom with IRI"
+    # :metadata-element "Data source provenance"
+    # :requirement-level :MUST-NOT;
+
+ sio:has-data-item . {0} ;
+    # rdfs:comment "summary level MUST NOT use sio:has-data-item with IRI"
+    # :metadata-element "Item listing"
+    # :requirement-level :MUST-NOT;
+
+ pav:createdWith . {0} ;
+    # rdfs:comment "summary level MUST NOT use pav:createdWith with IRI"
+    # :metadata-element "Creation tool"
+    # :requirement-level :MUST-NOT;
+
+ dcat:distribution . {0} ;
+    # rdfs:comment "summary level MUST NOT use dcat:distribution with IRI"
+    # :metadata-element "Distribution description"
+    # :requirement-level :MUST-NOT;
+
+ dct:format . {0} ;
+    # rdfs:comment "summary level MUST NOT use dct:format with IRI or xsd:String "
+    # :metadata-element "File format"
+    # :requirement-level :MUST-NOT;
+
+ dcat:downloadURL . {0} ;
+    # rdfs:comment "summary level MUST NOT use dcat:downloadURL with IRI"
+    # :metadata-element "File URL"
+    # :requirement-level :MUST-NOT;
+
+ dcat:byteSize . {0} ;
+    # rdfs:comment "summary level MUST NOT use dcat:byteSize with xsd:decimal"
+    # :metadata-element "Byte size"
+    # :requirement-level :MUST-NOT;
+
+ void:dataDump . {0} ;
+    # rdfs:comment "summary level MUST NOT use void:dataDump with IRI"
+    # :metadata-element "RDF File URL"
+    # :requirement-level :MUST-NOT;
+
+ dcat:landingPage . {0} ;
+    # rdfs:comment "summary level MUST NOT use dcat:landingPage with IRI"
+    # :metadata-element "Documentation"
+    # :requirement-level :MUST-NOT;
+
+ void:subset . {0} ;
+    # rdfs:comment "summary level MUST NOT use void:subset with IRI"
+    # :metadata-element "Linkset"
+    # :requirement-level :MUST-NOT;
+
+ void:triples . {0} ;
+    # rdfs:comment "summary level MUST NOT use void:triples with xsd:integer"
+    # :metadata-element "# of triples"
+    # :requirement-level :MUST-NOT;
+
+ void:entities . {0} ;
+    # rdfs:comment "summary level MUST NOT use void:entities with xsd:integer"
+    # :metadata-element "# of typed entities"
+    # :requirement-level :MUST-NOT;
+
+ void:distinctSubjects . {0} ;
+    # rdfs:comment "summary level MUST NOT use void:distinctSubjects with xsd:integer"
+    # :metadata-element "# of subjects"
+    # :requirement-level :MUST-NOT;
+
+ void:properties . {0} ;
+    # rdfs:comment "summary level MUST NOT use void:properties with xsd:integer"
+    # :metadata-element "# of properties"
+    # :requirement-level :MUST-NOT;
+
+ void:distinctObjects . {0} ;
+    # rdfs:comment "summary level MUST NOT use void:distinctObjects with xsd:integer"
+    # :metadata-element "# of objects"
+    # :requirement-level :MUST-NOT;
+
+ void:classPartition . {0} ;
+    # rdfs:comment "summary level MUST NOT use void:classPartition with IRI"
+    # :metadata-element "# of classes"
+    # :requirement-level :MUST-NOT;
+
+ void:propertyPartition . {0} ;
+    # rdfs:comment "summary level MUST NOT use void:propertyPartition with IRI"
+    # :metadata-element "property frequency"
+    # :requirement-level :MUST-NOT;
+
+ dct:alternative rdf:langString* ;
+    # rdfs:comment "summary level MAY use dct:alternative with zero or more rdf:langString"
+    # :metadata-element "Alternative titles"
+    # :requirement-level :MAY;
+
+ dcat:keyword xsd:string* ;
+    # rdfs:comment "summary level MAY use dcat:keyword with zero or more xsd:string"
+    # :metadata-element "Keywords"
+    # :requirement-level :MAY;
+
+ dct:license IRI? ;
+    # rdfs:comment "summary level MAY use dct:license with zero or one IRI"
+    # :metadata-element "License"
+    # :requirement-level :MAY;
+
+ dct:rights rdf:langString? ;
+    # rdfs:comment "summary level MAY use dct:rights with zero or one rdf:langString"
+    # :metadata-element "Rights"
+    # :requirement-level :MAY;
+
+ dct:references IRI* ;
+    # rdfs:comment "summary level MAY use dct:references with zero or more IRI"
+    # :metadata-element "References"
+    # :requirement-level :MAY;
+
+ dcat:theme IRI* ;
+    # rdfs:comment "summary level MAY use dcat:theme with zero or more IRI that is restricted to skos:Concept"
+    # :metadata-element "Concept descriptors"
+    # :requirement-level :MAY;
+
+ cito:citesAsAuthority IRI* ;
+    # rdfs:comment "summary level MAY use cito:citesAsAuthority with zero or more IRI"
+    # :metadata-element "Citations"
+    # :requirement-level :MAY;
+
+ rdfs:seeAlso IRI* ;
+    # rdfs:comment "summary level MAY use rdfs:seeAlso with zero or more IRI"
+    # :metadata-element "Related material"
+    # :requirement-level :MAY;
+
+ dct:hasPart IRI* ;
+    # rdfs:comment "summary level MAY use dct:hasPart with zero or more IRI"
+    # :metadata-element "Partitions"
+    # :requirement-level :MAY;
+
+ idot:preferredPrefix xsd:string? ;
+    # rdfs:comment "summary level MAY use idot:preferredPrefix with zero or one xsd:string"
+    # :metadata-element "Preferred prefix"
+    # :requirement-level :MAY;
+
+ idot:alternatePrefix xsd:string* ;
+    # rdfs:comment "summary level MAY use idot:alternatePrefix with zero or more xsd:string"
+    # :metadata-element "Alternate prefix"
+    # :requirement-level :MAY;
+
+ pav:hasCurrentVersion IRI? ;
+    # rdfs:comment "summary level MAY use pav:hasCurrentVersion with zero or one IRI"
+    # :metadata-element "Version linking"
+    # :requirement-level :MAY;
+
+ dcat:accessURL IRI* ;
+    # rdfs:comment "summary level MAY use dcat:accessURL with zero or more IRI"
+    # :metadata-element "File directory"
+    # :requirement-level :MAY;
+
+ foaf:page IRI* ;
+    # rdfs:comment "summary level SHOULD use foaf:page with zero or more IRI"
+    # :metadata-element "HTML page"
+    # :requirement-level :SHOULD;
+
+ schemaorg:logo IRI? ;
+    # rdfs:comment "summary level SHOULD use schemaorg:logo with zero or one IRI"
+    # :metadata-element "Logo"
+    # :requirement-level :SHOULD;
+
+ dct:accrualPeriodicity IRI? ;
+    # rdfs:comment "summary level SHOULD use dct:accrualPeriodicity with zero or one IRI that is restricted to dctypes:Frequency"
+    # :metadata-element "Update frequency"
+    # :requirement-level :SHOULD;
+
+ void:sparqlEndpoint IRI* ;
+    # rdfs:comment "summary level SHOULD use void:sparqlEndpoint with zero or more IRI"
+    # :metadata-element "SPARQL endpoint"
+    # :requirement-level :SHOULD;
+
+}
